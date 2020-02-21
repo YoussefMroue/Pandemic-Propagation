@@ -49,9 +49,9 @@ confirmed_json = json.dumps(confirmed_list, default=json_util.default)
 deaths_json = json.dumps(deaths_list, default=json_util.default)
 #
 
-path = os.path.join('..','finalData','cases.json')
+path = os.path.join('..','..','js','cases.json')
 with open(path,'w') as file:
 	json.dump(confirmed_json, file)
-path = os.path.join('..','finalData','deaths.json')
+path = os.path.join('..','..','js','deaths.json')
 with open(path,'w') as file:
 	json.dump(deaths_json, file)
