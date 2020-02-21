@@ -1,61 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Pademic Propagation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="static/css/style.css">
+     <!-- Plotly-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Leaflet CSS & JS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+  
 
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-	<title>Test something</title>
 </head>
-
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-				<div class="left_info">
-					
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="buttons">
-					<label class="switch">
-						<input type="checkbox">
-						<span class="slider round"></span>
-					</label>
-					<label class="buttonlabel">label</label>
-				</div>
-				<div class="map">
-					
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="right_info">
-					
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<div class="bars">
-					
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="globe">
-					
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="bubble">
-					
-				</div>
-			</div>
-		</div>
-	</div>
+<div id= "wrapper"></div>
+  <header>
+    <h1 >Pandemic Propagation</h1>
+  </header>
+  <nav>
+    <ul class="main_menu">
+      <button type="button" class="btn btn-secondary btn-md" disabled>SARS</button></li>
+      <button type="button" class="btn btn-secondary btn-md" disabled>H1N1</button></li>
+      <button type="button" class="btn btn-secondary btn-md" disabled>CORONAVIRUS</button></li>
+    </ul>
+  </nav>
+</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
-	<script src="{{ url_for('static', filename='js/temp.js') }}"></script>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <!-- The div where we will inject the confirmed cases chart -->
+      <div id="confirmed_cases_chart"><h1>Confirmed Cases Chart</h1></div>
+    </div>
+    <div class="col-sm-6 text-center"> 
+       <!-- The div where we will inject the map in the top center -->
+       <div id="map"><h1>Map</h1></div> 
+    </div>
+    <div class="col-sm-3 sidenav">
+      <!-- The div where we will inject the death cases chart -->
+      <ddiv id="death_cases_chart"><h1>Death Cases Chart</h1></div>
+    </div>
+  </div>
+</div>
+<div class="row content">
+  <div class="col-sm-4 sidenav">
+    <!-- The div where we will inject the comparison Chart-->
+    <div id="comparison_chart"><h1>Comparison Chart</h1></div>
+  </div>
+  <div class="col-sm-4 text-center"> 
+     <!-- The div where we will inject the globe -->
+     <div id="globe"><h1>Globle</h1></div> 
+  </div>
+  <div class="col-sm-4 sidenav">
+    <!-- The div where we will inject Buble Chart -->
+    <div class="col-md-4" div id="bubles"><h1>Bubles</h1></div>
+  </div>
+</div>
+</div>
+    <!-- D3-->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- Tooltip-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
 </body>
+
+<footer class="container-fluid text-center">
+  <p>2020 Pandemic Propagation</p>
+</footer>
 </html>
