@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<title>Test something</title>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="left_info">
+					
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="buttons">
+					<label class="switch">
+						<input type="checkbox">
+						<span class="slider round"></span>
+					</label>
+					<label class="buttonlabel">label</label>
+				</div>
+				<div class="map">
+					
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="right_info">
+					
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="bars">
+					
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="globe">
+					
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="bubble">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+	<script src="{{ url_for('static', filename='js/temp.js') }}"></script>
+</body>
+</html>
