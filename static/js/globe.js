@@ -78,22 +78,34 @@ function drawGlobe(cases){
     width = 360;
     height = 360;
     name = ""
-    console.log(cases);
+
+    cases = sortCases(cases);
+
+    // for (var country in countries){
+    //   console.log(countries[country].properties.name)
+    // }
+    // console.log(countries);
 
     let p1, p2 = [0, 0], r1, r2 = [0, 0, 0];
     var delay_time = 0;
-    for (var country in cases) {
-      console.log(cases[country]);
-      countries.find(country => {
-        
+
+    for (var item in cases) {
+      // console.log(cases[item]['Country']);
+      country_list = countries.find(country => {
+        return country.properties.name == cases[item]['Country'];
       })
-      console.log(countries);
+      if (country_list != undefined){
+        name = country_list.properties.name;
+        delay_time += 2000;
+        p1 = p2, p2 = d3.geoCentroid(country_list);
+        r1 = r2, r2 = [-p2[0], tilt - p2[1], 0];
+
+        transitions(p1,p2,r1,r2, delay_time, country_list);
+      }
+      // console.log(country_list);
       //name = country.properties.name;
       //delay_time += 2000
-      //p1 = p2, p2 = d3.geoCentroid(country);
-      //r1 = r2, r2 = [-p2[0], tilt - p2[1], 0];
 
-      //transitions(p1,p2,r1,r2, delay_time, country);
     }
   });
 };
@@ -149,3 +161,8 @@ function transitions(p1,p2,r1,r2, delay_time, country){
   .end();
 }
 
+function sortCases(df){
+  df.sort(function(a,b){
+    
+  })
+}

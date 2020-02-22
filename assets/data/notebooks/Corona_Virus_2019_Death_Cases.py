@@ -14,14 +14,14 @@ def corona_death():
     nom=Nominatim()
 
     # Import API key
-    from api_keys import api_key
+    #from api_keys import api_key
 
 
     # #### Set the path to your file
 
 
 
-    death_Cases = os.path.join("Resources","2019-ncov-Deaths.csv")
+    death_Cases = os.path.join("..","rawData","2019-ncov-Deaths.csv")
 
 
     # #### Read csv file
@@ -222,5 +222,8 @@ def corona_death():
     # #### Export Pandas DataFrame to a CSV File
 
 
-
-    CoronavirusDeathCases.to_csv('FinalCoronavirusDeathCases.csv')
+    CoronavirusDeathCases.at[12, 'Country'] = 'China'
+    CoronavirusDeathCases.at[25, 'Country'] = 'United States'
+    CoronavirusDeathCases.at[26, 'Country'] = 'United Kingdom'
+    path = os.path.join("..","cleanData","FinalCoronavirusDeathCases.csv")
+    CoronavirusDeathCases.to_csv(path)
