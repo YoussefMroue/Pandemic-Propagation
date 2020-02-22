@@ -225,7 +225,5 @@ def corona_death():
     CoronavirusDeathCases.at[12, 'Country'] = 'China'
     CoronavirusDeathCases.at[25, 'Country'] = 'United States'
     CoronavirusDeathCases.at[26, 'Country'] = 'United Kingdom'
-    CoronavirusDeathCases['Virus'] = "Coronavirus"
-    
     path = os.path.join("..","cleanData","FinalCoronavirusDeathCases.csv")
     CoronavirusDeathCases.to_csv(path)
