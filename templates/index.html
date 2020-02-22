@@ -46,6 +46,12 @@
       <button type="button" class="btn btn-secondary btn-md" id="Coronavirus">CORONAVIRUS</button></li>
     </ul>
   </nav>
+  <nav>
+  	<label class="switch">
+  		<input type="checkbox">
+  		<span class="slider round"></span>
+	</label>
+  </nav>
 </div>
 
   
@@ -56,8 +62,11 @@
       <div id="confirmed_cases_chart"><h1>Confirmed Cases Chart</h1></div>
     </div>
     <div class="col-sm-6 text-center"> 
-       <!-- The div where we will inject the map in the top center -->
-       <div id="map"><h1>Map</h1></div> 
+      <!-- The div where we will inject the map in the top center -->
+      <div id="map"><h1>Map</h1></div>
+      <div class="slidecontainer">
+		<input type="range" min="1" max="100" value="50" class="slide" id="myRange">
+	  </div>
     </div>
     <div class="col-sm-3 sidenav">
       <!-- The div where we will inject the death cases chart -->
