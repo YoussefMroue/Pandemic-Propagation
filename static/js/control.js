@@ -1,13 +1,11 @@
-function getdata(url){
-	d3.json(url).then(function(response) {
-		var json_response = JSON.parse(response);
-		return json_response;
-	})
-}
+cases = d3.json("/api/cases").then(function(response) {return response;});
+deaths = d3.json("/api/deaths").then(function(response) {return response;});;
 
-cases = getdata("/api/cases");
-deaths = getdata("/api/deaths");
+var SARS_button = d3.select("#SARS");
+var H1N1_button = d3.select("#H1N1");
+var coronavirus_button = d3.select("#Coronavirus");
 
-var SARS_button = d3.select("#SARS")
-var H1N1_button = d3.select("#H1N1")
-var coronavirus_button = d3.select("#Coronavirus")
+var buttons = d3.select(".button");
+buttons.on("change", function(){
+	console.log(d3.event.target);
+})

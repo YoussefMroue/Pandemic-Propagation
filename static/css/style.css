@@ -44,12 +44,12 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  }
+}
 
 
   
   /* Set black background color, white text and some padding */
-  footer {
+footer {
     background-color: #393f4d;
     color: white;
     padding: 15px;
@@ -58,14 +58,19 @@ button {
     bottom: 0;
     width: 100%;
     text-align: center;
-  }
+}
   
   /* On small screens, set height to 'auto' for sidenav and grid */
-  @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
     .sidenav {
       height: auto;
       padding: 15px;
     }
     .row.content {height:auto;} 
-  }
+}
   
+#canvas {
+    margin-right: auto;
+    margin-left: auto;
+    margin: auto;
+}

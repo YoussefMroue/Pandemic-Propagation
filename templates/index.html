@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Pademic Propagation</title>
+  <title>Pandemic Propagation</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
@@ -20,7 +20,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
      <!-- Plotly-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -72,19 +72,28 @@
   </div>
   <div class="col-sm-4 text-center"> 
      <!-- The div where we will inject the globe -->
-     <div id="globe"><h1>Globle</h1></div> 
+     <div id="globe"><h1></h1></div> 
   </div>
   <div class="col-sm-4 sidenav">
-    <!-- The div where we will inject Buble Chart -->
-    <div class="col-md-4" div id="bubles"><h1>Bubles</h1></div>
+    <!-- The div where we will inject Bubble Chart -->
+    <div class="col-md-4" div id="bubbles"><h1>Bubbles</h1></div>
   </div>
 </div>
 </div>
     <!-- D3-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-array.v1.min.js"></script>
+	<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/d3-require@1"></script>
+	<!--script>
+		var projection = d3.geoEqualEarth(),
+    		path = d3.geoPath(projection);
+	</script-->
+	<script src="https://unpkg.com/topojson@3"></script>
     <!-- Tooltip-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/control.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/globe.js') }}"></script>
 
 </body>
 
