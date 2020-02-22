@@ -18,19 +18,23 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	const og_cases = data[0];
 	const og_deaths = data[1];
 	cases = og_cases;
-	deaths = og_deaths
+	deaths = og_deaths;
+	bubbleValues(cases);
 	SARS_button.on("click", function(){
+		console.log(active_buttons);
 	    if (active_buttons.includes('SARS')){
 	      active_buttons = removeValue(active_buttons, 'SARS');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-	      drawGlobe(cases);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
 	    }
 	    else{
 	      active_buttons.push('SARS');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-	      drawGlobe(cases);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
 	    }
 	});
 	H1N1_button.on("click", function(){
@@ -38,13 +42,16 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      active_buttons = removeValue(active_buttons, 'H1N1');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-	      drawGlobe(cases);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
 	    }
 	    else{
 	      active_buttons.push('H1N1');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-	      drawGlobe(cases);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
+		  
 	    }
 	});
 	Coronavirus_button.on("click", function(){
@@ -52,15 +59,18 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      active_buttons = removeValue(active_buttons, 'Coronavirus');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-	      drawGlobe(cases);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
 	    }
 	    else{
 	      active_buttons.push('Coronavirus');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-	      drawGlobe(cases);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
 	    }
 	});
+	
 });
 
 

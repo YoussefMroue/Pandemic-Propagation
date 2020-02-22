@@ -78,16 +78,16 @@ function drawGlobe(cases){
     width = 360;
     height = 360;
     name = ""
-    console.log(cases);
+    // console.log(cases);
 
     let p1, p2 = [0, 0], r1, r2 = [0, 0, 0];
     var delay_time = 0;
     for (var country in cases) {
-      console.log(cases[country]);
+      // console.log(cases[country]);
       countries.find(country => {
         
       })
-      console.log(countries);
+      // console.log(countries);
       //name = country.properties.name;
       //delay_time += 2000
       //p1 = p2, p2 = d3.geoCentroid(country);
