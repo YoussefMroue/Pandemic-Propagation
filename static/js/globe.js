@@ -83,16 +83,14 @@ function transitions(p1,p2,r1,r2, delay_time, country){
   const iv = Versor.interpolateAngles(r1, r2);
   d3.transition()
   .delay(delay_time)
-  .duration(500)
+  .duration(1000)
   .tween("render", () => t => {
     projection.rotate(iv(t));
     render(country, {type: "LineString", coordinates: [p1, ip(t)]});
-    console.log(p1);
   })
   .transition()
   .tween("render", () => t => {
     render(country, {type: "LineString", coordinates: [ip(t), p2]});
-    console.log(p2);
   })
   .end();
 }
@@ -109,14 +107,12 @@ world.then(function(result){
   height = 360;
   name = ""
 
-  console.log(countries.length);
-
   let p1, p2 = [0, 0], r1, r2 = [0, 0, 0];
   var delay_time = 0;
   for (const country of countries) {
     name = country.properties.name;
     //render(country);
-    delay_time += 1000
+    delay_time += 2000
     p1 = p2, p2 = d3.geoCentroid(country);
     r1 = r2, r2 = [-p2[0], tilt - p2[1], 0];
 
