@@ -46,7 +46,10 @@ button {
     font-size: 16px;
 }
 
-
+#map{
+    height: 40vh;
+    width: 40vw;
+}
   
   /* Set black background color, white text and some padding */
 footer {
