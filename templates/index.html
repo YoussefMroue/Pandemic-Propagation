@@ -20,7 +20,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="/static/css/style.css">
      <!-- Plotly-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -89,11 +89,14 @@
 		var projection = d3.geoEqualEarth(),
     		path = d3.geoPath(projection);
 	</script-->
-	<script src="https://unpkg.com/topojson@3"></script>
-    <!-- Tooltip-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/control.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/globe.js') }}"></script>
+  <script src="https://unpkg.com/topojson@3"></script>
+ <!--script-->
+ <script type="text/javascript" src="{{ url_for('static', filename='js/control.js') }}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='js/comparison.js') }}"></script>
+  <!-- Tooltip-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+ 
+  <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/globe.js') }}"></script> -->
 
 </body>
 

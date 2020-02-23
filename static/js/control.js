@@ -1,5 +1,5 @@
-cases = d3.json("/api/cases").then(function(response) {return response;});
-deaths = d3.json("/api/deaths").then(function(response) {return response;});;
+var cases = d3.json("/api/cases").then(function(response) {return response;});
+var deaths = d3.json("/api/deaths").then(function(response) {return response;});;
 
 var SARS_button = d3.select("#SARS");
 var H1N1_button = d3.select("#H1N1");
