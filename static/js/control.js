@@ -1,11 +1,85 @@
-var cases = d3.json("/api/cases").then(function(response) {return response;});
-var deaths = d3.json("/api/deaths").then(function(response) {return response;});;
+start_dates = [];
+SARS_button = d3.select("#SARS");
+H1N1_button = d3.select("#H1N1");
+Coronavirus_button = d3.select("#Coronavirus");
+active_buttons = [];
 
-var SARS_button = d3.select("#SARS");
-var H1N1_button = d3.select("#H1N1");
-var coronavirus_button = d3.select("#Coronavirus");
+var slider = document.getElementById("myRange");
 
-var buttons = d3.select(".button");
-buttons.on("change", function(){
-	console.log(d3.event.target);
-})
+slider.oninput = function(){
+  console.log(this.value);
+}
+
+cases_promise = d3.json("/api/cases");
+deaths_promise = d3.json("/api/deaths");
+
+
+Promise.all([cases_promise,deaths_promise]).then(data => {
+	const og_cases = data[0];
+	const og_deaths = data[1];
+	cases = og_cases;
+	deaths = og_deaths;
+	bubbleValues(cases);
+	SARS_button.on("click", function(){
+		console.log(active_buttons);
+	    if (active_buttons.includes('SARS')){
+	      active_buttons = removeValue(active_buttons, 'SARS');
+	      cases = og_cases.filter(filterViruses);
+	      deaths = og_deaths.filter(filterViruses);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
+	    }
+	    else{
+	      active_buttons.push('SARS');
+	      cases = og_cases.filter(filterViruses);
+	      deaths = og_deaths.filter(filterViruses);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
+	    }
+	});
+	H1N1_button.on("click", function(){
+	    if (active_buttons.includes('H1N1')){
+	      active_buttons = removeValue(active_buttons, 'H1N1');
+	      cases = og_cases.filter(filterViruses);
+	      deaths = og_deaths.filter(filterViruses);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
+	    }
+	    else{
+	      active_buttons.push('H1N1');
+	      cases = og_cases.filter(filterViruses);
+	      deaths = og_deaths.filter(filterViruses);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
+		  
+	    }
+	});
+	Coronavirus_button.on("click", function(){
+	    if (active_buttons.includes('Coronavirus')){
+	      active_buttons = removeValue(active_buttons, 'Coronavirus');
+	      cases = og_cases.filter(filterViruses);
+	      deaths = og_deaths.filter(filterViruses);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
+	    }
+	    else{
+	      active_buttons.push('Coronavirus');
+	      cases = og_cases.filter(filterViruses);
+	      deaths = og_deaths.filter(filterViruses);
+		  drawGlobe(cases);
+		  bubbleValues(cases);
+	    }
+	});
+	
+});
+
+
+function removeValue(arr, value){
+  return arr.filter(function(element){
+    return element != value;
+  });
+}
+
+function filterViruses(country){
+  return active_buttons.includes(country.Virus)
+}

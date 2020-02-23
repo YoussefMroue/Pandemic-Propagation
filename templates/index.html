@@ -31,7 +31,11 @@
     <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
     integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
     crossorigin=""></script>
-  
+    <!-- Highcharts-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 </head>
 <body>
@@ -41,10 +45,16 @@
   </header>
   <nav>
     <ul class="main_menu">
-      <button type="button" class="btn btn-secondary btn-md" id="SARS" disabled>SARS</button></li>
-      <button type="button" class="btn btn-secondary btn-md" id="H1N1" disabled>H1N1</button></li>
-      <button type="button" class="btn btn-secondary btn-md" id="Coronavirus" disabled>CORONAVIRUS</button></li>
+      <button type="button" class="btn btn-secondary btn-md" id="SARS">SARS</button></li>
+      <button type="button" class="btn btn-secondary btn-md" id="H1N1">H1N1</button></li>
+      <button type="button" class="btn btn-secondary btn-md" id="Coronavirus">CORONAVIRUS</button></li>
     </ul>
+  </nav>
+  <nav>
+  	<label class="switch">
+  		<input type="checkbox">
+  		<span class="slider round"></span>
+	</label>
   </nav>
 </div>
 
@@ -56,8 +66,11 @@
       <div id="confirmed_cases_chart"><h1>Confirmed Cases Chart</h1></div>
     </div>
     <div class="col-sm-6 text-center"> 
-       <!-- The div where we will inject the map in the top center -->
-       <div id="map"><h1>Map</h1></div> 
+      <!-- The div where we will inject the map in the top center -->
+      <div id="map"><h1>Map</h1></div>
+      <div class="slidecontainer">
+		<input type="range" min="1" max="100" value="50" class="slide" id="myRange">
+	  </div>
     </div>
     <div class="col-sm-3 sidenav">
       <!-- The div where we will inject the death cases chart -->
@@ -66,7 +79,7 @@
   </div>
 </div>
 <div class="row content">
-  <div class="col-sm-4 sidenav">
+  <div class="col-sm-4 ">
     <!-- The div where we will inject the comparison Chart-->
     <div id="comparison_chart"><h1>Comparison Chart</h1></div>
   </div>
@@ -74,9 +87,12 @@
      <!-- The div where we will inject the globe -->
      <div id="globe"><h1></h1></div> 
   </div>
-  <div class="col-sm-4 sidenav">
+  <div class="col-sm-4 ">
     <!-- The div where we will inject Bubble Chart -->
-    <div class="col-md-4" div id="bubbles"><h1>Bubbles</h1></div>
+    <div id='bubbles'><h1></h1>
+      <div id = 'container'></div>
+    </div>
+      
   </div>
 </div>
 </div>
@@ -93,11 +109,12 @@
  <!--script-->
  <script type="text/javascript" src="{{ url_for('static', filename='js/control.js') }}"></script>
  <script type="text/javascript" src="{{ url_for('static', filename='js/comparison.js') }}"></script>
-  <!-- Tooltip-->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='js/globe.js') }}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='js/bubble.js') }}"></script>
  
-  <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/globe.js') }}"></script> -->
-
+ <!-- Tooltip-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    
 </body>
 
 <footer class="container-fluid text-center">

@@ -61,7 +61,7 @@ def cases():
 
 @app.route("/api/deaths")
 def deaths():
-	deaths_results = db.deaths.find()
+	deaths_results = db.death.find({},{"_id":0})
 	deaths_list = list(deaths_results)
 	for result in deaths_list:
 		for k, v in result.items():

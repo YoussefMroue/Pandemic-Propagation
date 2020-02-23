@@ -8,7 +8,7 @@ from geopy.geocoders import Nominatim
 nom=Nominatim()
 
 # Import API key
-from api_keys import api_key
+#from api_keys import api_key
 
 
 # #### Set the path to your file
@@ -16,7 +16,7 @@ from api_keys import api_key
 
 def corono_case():
 
-    confirmed_Cases = os.path.join("Resources","2019-nco-Confirmed.csv")
+    confirmed_Cases = os.path.join("..","rawData","2019-nco-Confirmed.csv")
 
 
     # #### Read csv file
@@ -218,4 +218,10 @@ def corono_case():
 
 
 
-    CoronavirusConfCases.to_csv('FinalCoronavirusConfCases.csv')
+    CoronavirusConfCases.at[12, 'Country'] = 'China'
+    CoronavirusConfCases.at[25, 'Country'] = 'United States'
+    CoronavirusConfCases.at[26, 'Country'] = 'United Kingdom'
+    CoronavirusConfCases['Virus'] = "Coronavirus"
+    
+    path = os.path.join("..","cleanData","FinalCoronavirusConfCases.csv")
+    CoronavirusConfCases.to_csv(path)
