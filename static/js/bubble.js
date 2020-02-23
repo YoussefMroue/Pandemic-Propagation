@@ -1,22 +1,78 @@
 
 countriesList = [];
 casesCount = [];
-lastDayNumber = 12;
+lastDayNumber = 23;
 lastDay = "Day "+ String(lastDayNumber);
+continents_array = getContinents();
+
 function bubbleValues(response) {
     if (active_buttons.length == 1){
 
         lastDay = "Day "+ String(lastDayNumber);
-        data_list = []
+        eu_list_new = [];
+        na_list_new = [];
+        af_list_new = [];
+        as_list_new = [];
+        oc_list_new = [];
+        sa_list_new = [];
         for(country in response){
-            if (response[country][lastDay] != 0){
-                var data_dict = {
-                    name : response[country]['Country'],
-                    value : response[country][lastDay]
+            if(continents_array[0].includes(response[country]['Country'])){
+                if (response[country][lastDay] != 0){
+                    var eu_dict = {
+                        name : response[country]['Country'],
+                        value : response[country][lastDay]
+                    }
+                    eu_list_new.push(eu_dict)
                 }
-                data_list.push(data_dict);
-            };
+            }
+            else if (continents_array[5].includes(response[country]['Country'])){
+                if (response[country][lastDay] != 0){
+                    var na_dict = {
+                        name : response[country]['Country'],
+                        value : response[country][lastDay]
+                    }
+                    na_list_new.push(na_dict);
+                }
+            }
+            else if (continents_array[1].includes(response[country]['Country'])){
+                if (response[country][lastDay] != 0){
+                    var af_dict = {
+                        name : response[country]['Country'],
+                        value : response[country][lastDay]
+                    }
+                    af_list_new.push(af_dict);
+                }
+            }
+            else if (continents_array[2].includes(response[country]['Country'])){
+                if (response[country][lastDay] != 0){
+                    var as_dict = {
+                        name : response[country]['Country'],
+                        value : response[country][lastDay]
+                    }
+                    as_list_new.push(as_dict);
+                }
+            }
+            else if (continents_array[3].includes(response[country]['Country'])){
+                if (response[country][lastDay] != 0){
+                    var oc_dict = {
+                        name : response[country]['Country'],
+                        value : response[country][lastDay]
+                    }
+                    oc_list_new.push(oc_dict);
+                }
+            }
+            else if (continents_array[4].includes(response[country]['Country'])){
+                if (response[country][lastDay] != 0){
+                    var sa_dict = {
+                        name : response[country]['Country'],
+                        value : response[country][lastDay]
+                    }
+                    sa_list_new.push(sa_dict);
+                }
+            }
         }
+    
+
         Highcharts.chart('container', {
             chart: {
                 type: 'packedbubble',
@@ -59,11 +115,28 @@ function bubbleValues(response) {
         
             series: [{
                 name: 'Europe',
-                data: data_list
+                data: eu_list_new
                 
+            },{
+                name: 'Asia',
+                data: as_list_new
+            },{
+                name: 'North America',
+                data: na_list_new
+            },{
+                name: 'South America',
+                data: sa_list_new
+            },{
+                name: 'Oceania',
+                data: oc_list_new
+            },{
+                name: 'Africa',
+                data: af_list_new
             }]
-        });
+            
+        })
     }
+
     else if (active_buttons.length>1) {
 
         lastDay = "Day "+ String(lastDayNumber);
@@ -156,8 +229,8 @@ function bubbleValues(response) {
         });
         
     };
-
-
 };
+
+
 
 
