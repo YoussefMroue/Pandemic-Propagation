@@ -63,7 +63,6 @@ canvas = d3.select("#globe").append("canvas")
 .attr("height", height);
 container = canvas.node();
 context = container.getContext('2d')
-// const context = DOM.context2d(width, height);
 const projection = d3.geoOrthographic().fitExtent([[10, 10], [width - 10, height - 10]], sphere);
 const path = d3.geoPath(projection, context);
 
@@ -79,90 +78,78 @@ function drawGlobe(cases){
     height = 360;
     name = ""
 
-    cases = sortCases(cases);
-
-    // for (var country in countries){
-    //   console.log(countries[country].properties.name)
-    // }
-    // console.log(countries);
+    sorted = sortCases(cases);
+    var infected = [];
 
     let p1, p2 = [0, 0], r1, r2 = [0, 0, 0];
     var delay_time = 0;
 
-    for (var item in cases) {
-      // console.log(cases[item]['Country']);
+    for (var item in sorted) {
       country_list = countries.find(country => {
-        return country.properties.name == cases[item]['Country'];
+        return country.properties.name == sorted[item]['Country'];
       })
       if (country_list != undefined){
         name = country_list.properties.name;
+        var virus = sorted[item]['Virus'];
+        var num_cases = 0;
+        if (virus == 'Coronavirus'){
+          num_cases = sorted[item]['Day 23'];
+        }
+        else if (virus == 'SARS'){
+          num_cases = sorted[item]['Day 116'];
+        }
+        else{
+          num_cases = sorted[item]['Day 44'];
+        }
         delay_time += 2000;
         p1 = p2, p2 = d3.geoCentroid(country_list);
         r1 = r2, r2 = [-p2[0], tilt - p2[1], 0];
 
-        transitions(p1,p2,r1,r2, delay_time, country_list);
+        transitions(p1,p2,r1,r2, delay_time, country_list, infected, virus, num_cases);
       }
-      // console.log(country_list);
-      //name = country.properties.name;
-      //delay_time += 2000
-
     }
   });
 };
 
-// var world = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
-// world.then(function(result){
-//   land = topojson.feature(result, result.objects.land);
-//   borders = topojson.mesh(result, result.objects.countries, (a, b) => a !== b);
-//   countries = topojson.feature(result, result.objects.countries).features;
-//   sphere = ({type: "Sphere"});
-//   tilt = 20;
-//   width = 360;
-//   height = 360;
-//   name = ""
 
-//   let p1, p2 = [0, 0], r1, r2 = [0, 0, 0];
-//   var delay_time = 0;
-//   for (const country of countries) {
-//     name = country.properties.name;
-//     //console.log(country.Country);
-//     delay_time += 2000
-//     p1 = p2, p2 = d3.geoCentroid(country);
-//     r1 = r2, r2 = [-p2[0], tilt - p2[1], 0];
-
-//     transitions(p1,p2,r1,r2, delay_time, country);
-//   }
-// });
-
-function render(country, arc) {
+function render(country, arc, infected) {
   context.clearRect(0, 0, width, height);
   context.beginPath(), path(land), context.fillStyle = "#000", context.fill();
   context.beginPath(), path(country), context.fillStyle = "#f00", context.fill();
+  for (nation in infected){
+    context.beginPath(), path(infected[nation]), context.fillStyle = "#f00", context.fill();
+  }
   context.beginPath(), path(borders), context.strokeStyle = "#fff", context.lineWidth = 0.5, context.stroke();
   context.beginPath(), path(sphere), context.strokeStyle = "#000", context.lineWidth = 1.5, context.stroke();
   context.beginPath(), path(arc), context.strokeStyle = "#f00", context.stroke();
   return context.canvas;
 }
 
-function transitions(p1,p2,r1,r2, delay_time, country){
+function transitions(p1,p2,r1,r2, delay_time, country, infected, virus, num_cases){
   const ip = d3.geoInterpolate(p1, p2);
   const iv = Versor.interpolateAngles(r1, r2);
   d3.transition()
   .delay(delay_time)
   .duration(1000)
   .tween("render", () => t => {
+    document.getElementById("globe_info").innerText = `${country.properties.name}: ${virus} Cases: ${num_cases}`;
     projection.rotate(iv(t));
-    render(country, {type: "LineString", coordinates: [p1, ip(t)]});
+    render(country, {type: "LineString", coordinates: [p1, ip(t)]}, infected);
   })
   .transition()
   .tween("render", () => t => {
-    render(country, {type: "LineString", coordinates: [ip(t), p2]});
+    render(country, {type: "LineString", coordinates: [ip(t), p2]}, infected);
+    infected.push(country);
   })
   .end();
 }
 
 function sortCases(df){
-  df.sort(function(a,b){
-    
-  })
+  for(i=116; i>=0; i--){
+    day = 'Day ' + String(i)
+    df.sort(function(a,b){
+      return b[day] - a[day];
+    });
+  }
+  return df;
 }
