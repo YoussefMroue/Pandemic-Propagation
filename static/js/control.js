@@ -61,7 +61,7 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	});
 
 	slider.onchange = function(){
-		slideBuild(cases, deaths, slider.value);
+		slideBuild(cases, deaths, slider.value, og_cases, og_deaths);
 	}
 	function bubblecheckfunction(){
 		bubbleValues(cases,deaths,slider.value);
@@ -83,8 +83,8 @@ function initialBuild(cases,deaths, slide_num){
 	drawGlobe(cases);
 	bubbleValues(cases, deaths, slide_num);
 	makeMap(cases, deaths, slide_num);
-	confirmedCasesData(og_cases);
-	deathCasesData(og_deaths);
+	confirmedCasesData(cases);
+	deathCasesData(deaths);
 }
 
 function buttonBuild(cases, deaths, slide_num){
@@ -93,7 +93,9 @@ function buttonBuild(cases, deaths, slide_num){
 	makeMap(cases,deaths, slide_num);
 }
 
-function slideBuild(cases, deaths, slide_num){
+function slideBuild(cases, deaths, slide_num, og_cases, og_deaths){
 	bubbleValues(cases, deaths, slide_num);
 	makeMap(cases, deaths, slide_num);
+	confirmedCasesData(og_cases);
+	deathCasesData(og_deaths);
 }
