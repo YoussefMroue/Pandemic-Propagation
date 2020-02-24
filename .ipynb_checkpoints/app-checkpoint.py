@@ -23,10 +23,8 @@ from bson.objectid import ObjectId
 
 confirmed_df = pd.read_csv(os.path.join('assets','data','finalData','cases.csv'))
 deaths_df = pd.read_csv(os.path.join('assets','data','finalData','deaths.csv'))
-continents_df = pd.read_csv(os.path.join('assets','data','cleanData','continents.csv'))
 confirmed_dict = confirmed_df.to_dict('records')
 deaths_dict = deaths_df.to_dict('records')
-continents_dict = continents_df.to_dict('records')
 # Create an instance of our Flask app.
 app = Flask(__name__)
 # Create variable for our connection string
@@ -39,11 +37,9 @@ db = client.viruses
 # Drops collection if available to remove duplicates
 db.confirmed.drop()
 db.death.drop()
-db.continents.drop()
 # Creates a collection in the database and inserts three documents
 db.confirmed.insert_many(confirmed_dict)
 db.death.insert_many(deaths_dict)
-db.continents.insert_many(continents_dict)
 
 def is_nan(x):
     return (x is np.nan or x != x)
@@ -73,11 +69,6 @@ def deaths():
 				result[k] = "null"
 	return jsonify(deaths_list)
 
-@app.route("/api/continents")
-def continents():
-	continents_results = db.continents.find({},{"_id":0})
-	continents_list = list(continents_results)
-	return jsonify(continents_list)
 
 if __name__ == "__main__":
     app.run(debug=True)

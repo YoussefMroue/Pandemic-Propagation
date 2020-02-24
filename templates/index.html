@@ -40,7 +40,7 @@
 
 </head>
 <body>
-<div id= "wrapper"></div>
+<div id= "wrapper">
   <header>
     <h1 >Pandemic Propagation</h1>
   </header>
@@ -52,7 +52,7 @@
     </ul>
   </nav>
   <nav>
-  	<label class="switch">
+  	<label class="main_menu switch">
   		<input type="checkbox">
   		<span class="slider round"></span>
 	</label>
@@ -86,7 +86,9 @@
   </div>
   <div class="col-sm-4 text-center"> 
      <!-- The div where we will inject the globe -->
-     <div id="globe"><h1></h1></div> 
+     <div id="globe">
+     	<b id="globe_info"></b>
+     </div> 
   </div>
   <div class="col-sm-4 ">
     <!-- The div where we will inject Bubble Chart -->
@@ -110,9 +112,16 @@
  <!--script-->
  <script type="text/javascript" src="{{ url_for('static', filename='js/control.js') }}"></script>
  <script type="text/javascript" src="{{ url_for('static', filename='js/globe.js') }}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='js/continents.js') }}"></script>
  <script type="text/javascript" src="{{ url_for('static', filename='js/bubble.js') }}"></script>
+<<<<<<< HEAD
  <script type="text/javascript" src="{{ url_for('static', filename='js/confirmed_cases.js') }}"></script>
 
+=======
+ <script type="text/javascript" src="{{ url_for('static', filename='js/config.js') }}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script>
+ 
+>>>>>>> 156b3192e5cd3066ff5cb67d8760ba2e701362dc
  <!-- Tooltip-->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
     
