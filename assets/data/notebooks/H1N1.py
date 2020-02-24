@@ -55,8 +55,8 @@ def h1n1():
             country = 'Iran'
         if 'Viet Nam' in country:
             country = 'Vietnam'
-        if 'Gaza Strip' in country:
-            country = 'Gaza Strip'
+        if 'West Bank' in country:
+            country = 'West Bank'
         if 'Jersey' in country:
             country = 'Jersey'
         if 'Guadaloupe' in country:

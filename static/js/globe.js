@@ -109,7 +109,7 @@ function drawGlobe(cases){
       }
     }
   });
-};
+}
 
 
 function render(country, arc, infected) {

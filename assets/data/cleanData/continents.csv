@@ -1,194 +1,195 @@
-0,continent
-Australia,OC
-Belgium,EU
-Cambodia,AS
-Canada,North America
-Finland,EU
-France,EU
-Germany,EU
-Hong Kong,AS
-India,AS
-Italy,EU
-Japan,AS
-Macau,AS
-China,AS
-Malaysia,AS
-Nepal,AS
-Others,other
-Philippines,AS
-Russia,EU
-Singapore,AS
-South Korea,AS
-Spain,EU
-Sri Lanka,AS
-Sweden,EU
-Taiwan,AS
-Thailand,AS
-United States of America,North America
-United Kingdom,EU
-United Arab Emirates,AS
-Vietnam,AS
-Germany,EU
-Canada,North America
-Singapore,AS
-Hong Kong,AS
-Switzerland,EU
-Thailand,AS
-Vietnam,AS
-Taiwan,AS
-United Kingdom,EU
-Spain,EU
-United States of America,North America
-Italy,EU
-Ireland,EU
-France,EU
-China,AS
-Romania,EU
-Australia,OC
-Brazil,SA
-Malaysia,AS
-Kuwait,AS
-South Africa,AF
-Indonesia,AS
-Philippines,AS
-Sweden,EU
-India,AS
-Mongolia,AS
-South Korea,AS
-Macau,AS
-New Zealand,OC
-Colombia,SA
-Finland,EU
-Russia,EU
-United States of America,North America
-United Kingdom,EU
-Turkey,AS
-Thailand,AS
-Switzerland,EU
-Sweden,EU
-Spain,EU
-Russia,EU
-Portugal,EU
-Poland,EU
-Philippines,AS
-Peru,SA
-Panama,North America
-Norway,EU
-New Zealand,OC
-Netherlands,EU
-Mexico,North America
-Malaysia,AS
-South Korea,AS
-Japan,AS
-Italy,EU
-Israel,AS
-Ireland,EU
-India,AS
-Guatemala,North America
-Greece,EU
-Germany,EU
-France,EU
-Finland,EU
-El Salvador,North America
-Ecuador,SA
-Denmark,EU
-Cuba,North America
-Costa Rica,North America
-Colombia,SA
-China,AS
-Chile,SA
-Canada,North America
-Brazil,SA
-Belgium,EU
-Austria,EU
-Australia,OC
-Argentina,SA
-Kuwait,AS
-Iceland,EU
-Honduras,North America
-Singapore,AS
-Bahrain,AS
-Uruguay,SA
-Slovakia,EU
-Romania,EU
-Dominican Rep.,North America
-Czechia,EU
-Vietnam,AS
-Venezuela,SA
-Paraguay,SA
-Jamaica,North America
-Hungary,EU
-Estonia,EU
-Cyprus,AS
-Bolivia,SA
-Bahamas,North America
-Nicaragua,North America
-Lebanon,AS
-Egypt,AF
-Bulgaria,EU
-Saudi Arabia,AS
-Luxembourg,EU
-Barbados,North America
-United Arab Emirates,AS
-Trinidad and Tobago,North America
-Dominica,North America
-Cayman Islands,North America
-Ukraine,EU
-Gaza Strip,AS
-Morocco,AF
-Yemen,AS
-Jersey,EU
-Isle of Man,EU
-Sri Lanka,AS
-Samoa,OC
-Qatar,AS
-Jordan,AS
-U.S. Virgin Islands,North America
-Bermuda,North America
-Suriname,SA
-South Africa,AF
-Papua New Guinea,OC
-Oman,AS
-Netherlands Antilles,North America
-Laos,AS
-Martinique,North America
-French Polynesia,OC
-Slovenia,EU
-Fiji,OC
-Brunei,AS
-Bangladesh,AS
-Algeria,AF
-Vanuatu,OC
-Tunisia,AF
-Montenegro,EU
-Latvia,EU
-Ethiopia,AF
-Côte d'Ivoire,AF
-Cape Verde,AF
-Cambodia,AS
-Antigua and Barbuda,North America
-Guernsey,EU
-Serbia,EU
-Iran,AS
-Indonesia,AS
-Nepal,AS
-Lithuania,EU
-Iraq,AS
-Saint Lucia,North America
-Myanmar,AS
-Mauritius,AF
-Kenya,AF
-Uganda,AF
-Palau,OC
-Aruba,North America
-Malta,EU
-Bosnia and Herz.,EU
-Puerto Rico,North America
-Macedonia,EU
-Syria,AS
-Libya,AF
-Guyana,SA
-New Caledonia,OC
-Guadeloupe,North America
-Croatia,EU
-Cook Islands,OC
+,0,continent
+0,Australia,OC
+1,Belgium,EU
+2,Cambodia,AS
+3,Canada,North America
+4,Finland,EU
+5,France,EU
+6,Germany,EU
+7,Hong Kong,AS
+8,India,AS
+9,Italy,EU
+10,Japan,AS
+11,Macau,AS
+12,China,AS
+13,Malaysia,AS
+14,Nepal,AS
+15,Others,
+16,Philippines,AS
+17,Russia,EU
+18,Singapore,AS
+19,South Korea,AS
+20,Spain,EU
+21,Sri Lanka,AS
+22,Sweden,EU
+23,Taiwan,AS
+24,Thailand,AS
+25,United States of America,North America
+26,United Kingdom,EU
+27,United Arab Emirates,AS
+28,Vietnam,AS
+29,Germany,EU
+30,Canada,North America
+31,Singapore,AS
+32,Hong Kong,AS
+33,Switzerland,EU
+34,Thailand,AS
+35,Vietnam,AS
+36,Taiwan,AS
+37,United Kingdom,EU
+38,Spain,EU
+39,United States of America,North America
+40,Italy,EU
+41,Ireland,EU
+42,France,EU
+43,China,AS
+44,Romania,EU
+45,Australia,OC
+46,Brazil,SA
+47,Malaysia,AS
+48,Kuwait,AS
+49,South Africa,AF
+50,Indonesia,AS
+51,Philippines,AS
+52,Sweden,EU
+53,India,AS
+54,Mongolia,AS
+55,South Korea,AS
+56,Macau,AS
+57,New Zealand,OC
+58,Colombia,SA
+59,Finland,EU
+60,Russia,EU
+61,United States of America,North America
+62,United Kingdom,EU
+63,Turkey,AS
+64,Thailand,AS
+65,Switzerland,EU
+66,Sweden,EU
+67,Spain,EU
+68,Russia,EU
+69,Portugal,EU
+70,Poland,EU
+71,Philippines,AS
+72,Peru,SA
+73,Panama,North America
+74,Norway,EU
+75,New Zealand,OC
+76,Netherlands,EU
+77,Mexico,North America
+78,Malaysia,AS
+79,South Korea,AS
+80,Japan,AS
+81,Italy,EU
+82,Israel,AS
+83,Ireland,EU
+84,India,AS
+85,Guatemala,North America
+86,Greece,EU
+87,Germany,EU
+88,France,EU
+89,Finland,EU
+90,El Salvador,North America
+91,Ecuador,SA
+92,Denmark,EU
+93,Cuba,North America
+94,Costa Rica,North America
+95,Colombia,SA
+96,China,AS
+97,Chile,SA
+98,Canada,North America
+99,Brazil,SA
+100,Belgium,EU
+101,Austria,EU
+102,Australia,OC
+103,Argentina,SA
+104,Kuwait,AS
+105,Iceland,EU
+106,Honduras,North America
+107,Singapore,AS
+108,Bahrain,AS
+109,Uruguay,SA
+110,Slovakia,EU
+111,Romania,EU
+112,Dominican Rep.,North America
+113,Czechia,EU
+114,Vietnam,AS
+115,Venezuela,SA
+116,Paraguay,SA
+117,Jamaica,North America
+118,Hungary,EU
+119,Estonia,EU
+120,Cyprus,AS
+121,Bolivia,SA
+122,Bahamas,North America
+123,Nicaragua,North America
+124,Lebanon,AS
+125,Egypt,AF
+126,Bulgaria,EU
+127,Saudi Arabia,AS
+128,Luxembourg,EU
+129,Barbados,North America
+130,United Arab Emirates,AS
+131,Trinidad and Tobago,North America
+132,Dominica,North America
+133,Cayman Islands,North America
+134,Ukraine,EU
+135,West Bank,AS
+136,Morocco,AF
+137,Yemen,AS
+138,Jersey,EU
+139,Isle of Man,EU
+140,Sri Lanka,AS
+141,Samoa,OC
+142,Qatar,AS
+143,Jordan,AS
+144,U.S. Virgin Islands,North America
+145,Bermuda,North America
+146,Suriname,SA
+147,South Africa,AF
+148,Papua New Guinea,OC
+149,Oman,AS
+150,Netherlands Antilles,North America
+151,Laos,AS
+152,Martinique,North America
+153,French Polynesia,OC
+154,Slovenia,EU
+155,Fiji,OC
+156,Brunei,AS
+157,Bangladesh,AS
+158,Algeria,AF
+159,Vanuatu,OC
+160,Tunisia,AF
+161,Montenegro,EU
+162,Latvia,EU
+163,Ethiopia,AF
+164,Côte d'Ivoire,AF
+165,Cape Verde,AF
+166,Cambodia,AS
+167,Antigua and Barbuda,North America
+168,Guernsey,EU
+169,Serbia,EU
+170,Iran,AS
+171,Indonesia,AS
+172,Nepal,AS
+173,Lithuania,EU
+174,Iraq,AS
+175,Saint Lucia,North America
+176,Myanmar,AS
+177,Mauritius,AF
+178,Kenya,AF
+179,Uganda,AF
+180,Palau,OC
+181,Aruba,North America
+182,Malta,EU
+183,Bosnia and Herz.,EU
+184,Puerto Rico,North America
+185,Macedonia,EU
+186,Syria,AS
+187,Libya,AF
+188,Guyana,SA
+189,New Caledonia,OC
+190,Guadeloupe,North America
+191,Croatia,EU
+192,Cook Islands,OC
+Others,,other

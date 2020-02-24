@@ -1,4 +1,4 @@
-world = {
+world_geography = {
   "type": "FeatureCollection",
   "features": [
     {
@@ -6192,7 +6192,7 @@ world = {
     {
       "type": "Feature",
       "properties": {
-        "name": "The Bahamas"
+        "name": "Bahamas"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -6300,7 +6300,7 @@ world = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Bosnia and Herzegovina"
+        "name": "Bosnia and Herz."
       },
       "geometry": {
         "type": "Polygon",
@@ -13192,7 +13192,7 @@ world = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Ivory Coast"
+        "name": "Côte d'Ivoire"
       },
       "geometry": {
         "type": "Polygon",
@@ -15266,7 +15266,7 @@ world = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Czech Republic"
+        "name": "Czechia"
       },
       "geometry": {
         "type": "Polygon",
@@ -15856,7 +15856,7 @@ world = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Dominican Republic"
+        "name": "Dominican Rep."
       },
       "geometry": {
         "type": "Polygon",
@@ -18030,7 +18030,7 @@ world = {
     {
       "type": "Feature",
       "properties": {
-        "name": "England"
+        "name": "United Kingdom"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -38238,7 +38238,7 @@ world = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Republic of Serbia"
+        "name": "Serbia"
       },
       "geometry": {
         "type": "Polygon",
@@ -41570,7 +41570,7 @@ world = {
     {
       "type": "Feature",
       "properties": {
-        "name": "USA"
+        "name": "United States of America"
       },
       "geometry": {
         "type": "MultiPolygon",

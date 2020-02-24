@@ -509,6 +509,7 @@ function bubbleValues(cases,deaths,slide_num) {
         });
         
     };
+
 };
 
 
