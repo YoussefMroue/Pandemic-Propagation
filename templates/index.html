@@ -8,9 +8,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <!-- Optional JavaScript -->
+    <!-- Chartist, jQuery first, then Popper.js, then Bootstrap JS -->>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -34,6 +33,7 @@
     crossorigin=""></script>
     <!-- Highcharts-->
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
@@ -52,8 +52,8 @@
     </ul>
   </nav>
   <nav>
-  	<label class="main_menu switch">
-  		<input type="checkbox">
+  	<label class="switch">
+  		<input type="checkbox" id = "bubblecheck" onclick="bubblecheckfunction()">
   		<span class="slider round"></span>
 	</label>
   </nav>
@@ -82,7 +82,7 @@
 <div class="row content">
   <div class="col-sm-4 ">
     <!-- The div where we will inject the comparison Chart-->
-    <div id="comparison_chart"><h1>Comparison Chart</h1></div>
+    <div id="comparison_chart"></div><h1>Comparison Chart</h1></div>
   </div>
   <div class="col-sm-4 text-center"> 
      <!-- The div where we will inject the globe -->
@@ -114,7 +114,10 @@
  <script type="text/javascript" src="{{ url_for('static', filename='js/world_geography.js') }}"></script>
  <script type="text/javascript" src="{{ url_for('static', filename='js/comparison.js') }}"></script>
  <script type="text/javascript" src="{{ url_for('static', filename='js/globe.js') }}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='js/continents.js') }}"></script>
  <script type="text/javascript" src="{{ url_for('static', filename='js/bubble.js') }}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='js/confirmed_cases.js') }}"></script>
+
  <script type="text/javascript" src="{{ url_for('static', filename='js/config.js') }}"></script>
  <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script>
  
