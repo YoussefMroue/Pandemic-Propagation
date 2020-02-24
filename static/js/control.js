@@ -15,6 +15,7 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	const og_deaths = data[1];
 	cases = og_cases;
 	deaths = og_deaths;
+	bubblecheckbox = document.getElementById('bubblecheck');
 	buildPage(cases, deaths, slider.value);
 	SARS_button.on("click", function(){
 		console.log(active_buttons);
@@ -63,7 +64,9 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	slider.onchange = function(){
 		buildPage(cases, deaths, slider.value);
 	}
-	
+	function bubblecheckfunction(){
+		bubbleValues(cases,deaths,slider.value);
+	}
 });
 
 
@@ -81,4 +84,5 @@ function buildPage(cases, deaths, slide_num){
 	drawGlobe(cases);
 	bubbleValues(cases, deaths, slide_num);
 	makeMap(cases,deaths);
+	confirmedCasesData(cases);
 }

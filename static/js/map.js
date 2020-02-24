@@ -10,4 +10,36 @@ function makeMap(cases, deaths){
     id: "mapbox.streets-basic",
     accessToken: API_KEY
   }).addTo(myMap);
+
+  console.log(world);
+  var geojson;
+  L.geoJson(world, {
+    style: function(feature) {
+      return {
+        color: 'black',
+        fillColor: 'blue',//chooseColor(feature),
+        fillOpacity: 0.5,
+        weight: 1.5
+      }
+    },
+    onEachFeature: function(feature, layer) {
+      layer.on({
+        mouseover: function(event) {
+          layer = event.target;
+          layer.setStyle({
+            fillOpacity: 0.9
+          });
+        },
+        mouseout: function(event) {
+          layer = event.target;
+          layer.setStyle({
+            fillOpacity: 0.5
+          });
+        },
+        click: function(event) {
+          map.fitBounds(event.target.getBounds());
+        }
+      });
+    }
+  }).addTo(myMap);
 }
