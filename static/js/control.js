@@ -85,4 +85,5 @@ function buildPage(cases, deaths, slide_num){
 	bubbleValues(cases, deaths, slide_num);
 	makeMap(cases,deaths);
 	confirmedCasesData(cases);
+	deathCasesData(deaths);
 }
