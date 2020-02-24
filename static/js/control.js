@@ -20,6 +20,7 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	cases = og_cases;
 	deaths = og_deaths;
 	bubbleValues(cases);
+	confirmedCasesData(cases);
 	SARS_button.on("click", function(){
 		console.log(active_buttons);
 	    if (active_buttons.includes('SARS')){
@@ -28,6 +29,7 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      deaths = og_deaths.filter(filterViruses);
 		  drawGlobe(cases);
 		  bubbleValues(cases);
+		  confirmedCasesData(cases);
 	    }
 	    else{
 	      active_buttons.push('SARS');
@@ -35,6 +37,7 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      deaths = og_deaths.filter(filterViruses);
 		  drawGlobe(cases);
 		  bubbleValues(cases);
+		  confirmedCasesData(cases);
 	    }
 	});
 	H1N1_button.on("click", function(){
@@ -44,6 +47,7 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      deaths = og_deaths.filter(filterViruses);
 		  drawGlobe(cases);
 		  bubbleValues(cases);
+		  confirmedCasesData(cases);
 	    }
 	    else{
 	      active_buttons.push('H1N1');
@@ -51,7 +55,7 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      deaths = og_deaths.filter(filterViruses);
 		  drawGlobe(cases);
 		  bubbleValues(cases);
-		  
+		  confirmedCasesData(cases);
 	    }
 	});
 	Coronavirus_button.on("click", function(){
@@ -61,6 +65,7 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      deaths = og_deaths.filter(filterViruses);
 		  drawGlobe(cases);
 		  bubbleValues(cases);
+		  confirmedCasesData(cases);
 	    }
 	    else{
 	      active_buttons.push('Coronavirus');
@@ -68,6 +73,7 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      deaths = og_deaths.filter(filterViruses);
 		  drawGlobe(cases);
 		  bubbleValues(cases);
+		  confirmedCasesData(cases);
 	    }
 	});
 	
