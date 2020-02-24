@@ -67,9 +67,9 @@ function deathCasesData(data){
     parseInt(sarsDeathCases)
     
   }
-  console.log(d_string)
+  // console.log(d_string)
 
-  console.log(h1n1Cases)
+  // console.log(h1n1Cases)
 
   
   Highcharts.chart('death_cases_chart', {

@@ -70,9 +70,9 @@ function confirmedCasesData(data){
     parseInt(sarsCases)
     
   }
-  console.log(d_string)
+  // console.log(d_string)
 
-  console.log(h1n1Cases)
+  // console.log(h1n1Cases)
 
 Highcharts.chart('confirmed_cases_chart', {
   chart: {

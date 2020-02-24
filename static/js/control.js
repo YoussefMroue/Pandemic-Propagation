@@ -16,19 +16,19 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	cases = og_cases;
 	deaths = og_deaths;
 	bubblecheckbox = document.getElementById('bubblecheck');
-	buildPage(cases, deaths, slider.value);
+	initialBuild(cases, deaths, slider.value);
 	SARS_button.on("click", function(){
 	    if (active_buttons.includes('SARS')){
 	      active_buttons = removeValue(active_buttons, 'SARS');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buildPage(cases, deaths, slider.value);
+		  buttonBuild(cases, deaths, slider.value);
 	    }
 	    else{
 	      active_buttons.push('SARS');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buildPage(cases, deaths, slider.value);
+		  buttonBuild(cases, deaths, slider.value);
 	    }
 	});
 	H1N1_button.on("click", function(){
@@ -36,13 +36,13 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      active_buttons = removeValue(active_buttons, 'H1N1');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buildPage(cases, deaths, slider.value);
+		  buttonBuild(cases, deaths, slider.value);
 	    }
 	    else{
 	      active_buttons.push('H1N1');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buildPage(cases, deaths, slider.value);
+		  buttonBuild(cases, deaths, slider.value);
 	    }
 	});
 	Coronavirus_button.on("click", function(){
@@ -50,13 +50,13 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      active_buttons = removeValue(active_buttons, 'Coronavirus');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buildPage(cases, deaths, slider.value);
+		  buttonBuild(cases, deaths, slider.value);
 	    }
 	    else{
 	      active_buttons.push('Coronavirus');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buildPage(cases, deaths, slider.value);
+		  buttonBuild(cases, deaths, slider.value);
 	    }
 	});
 
@@ -79,12 +79,18 @@ function filterViruses(country){
   return active_buttons.includes(country.Virus)
 }
 
-function buildPage(cases, deaths, slide_num){
+function initialBuild(cases,deaths, slide_num){
+	drawGlobe(cases);
+	bubbleValues(cases, deaths, slide_num);
+	makeMap(cases, deaths, slide_num);
+	confirmedCasesData(og_cases);
+	deathCasesData(og_deaths);
+}
+
+function buttonBuild(cases, deaths, slide_num){
 	drawGlobe(cases);
 	bubbleValues(cases, deaths, slide_num);
 	makeMap(cases,deaths, slide_num);
-	confirmedCasesData(cases);
-	deathCasesData(deaths);
 }
 
 function slideBuild(cases, deaths, slide_num){
