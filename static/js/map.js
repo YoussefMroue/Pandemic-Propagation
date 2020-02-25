@@ -61,7 +61,6 @@ function chooseColor(feature, countries, day_num){
       }
     }
   }
-  console.log(sum);
   
   if (sum > 10000){
     return '#9e0142';

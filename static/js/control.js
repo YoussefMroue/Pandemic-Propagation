@@ -3,7 +3,7 @@ SARS_button = d3.select("#SARS");
 H1N1_button = d3.select("#H1N1");
 Coronavirus_button = d3.select("#Coronavirus");
 active_buttons = [];
-
+last_button = [""];
 slider = document.getElementById("myRange");
 
 cases_promise = d3.json("/api/cases");
@@ -22,13 +22,17 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      active_buttons = removeValue(active_buttons, 'SARS');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buttonBuild(cases, deaths, slider.value);
+	      last_cases = og_cases.filter(filterLast);
+	      last_deaths = og_deaths.filter(filterLast);
+		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
 	    }
 	    else{
 	      active_buttons.push('SARS');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buttonBuild(cases, deaths, slider.value);
+	      last_cases = og_cases.filter(filterLast);
+	      last_deaths = og_deaths.filter(filterLast);
+		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
 	    }
 	});
 	H1N1_button.on("click", function(){
@@ -36,13 +40,17 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      active_buttons = removeValue(active_buttons, 'H1N1');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buttonBuild(cases, deaths, slider.value);
+	      last_cases = og_cases.filter(filterLast);
+	      last_deaths = og_deaths.filter(filterLast);
+		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
 	    }
 	    else{
 	      active_buttons.push('H1N1');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buttonBuild(cases, deaths, slider.value);
+	      last_cases = og_cases.filter(filterLast);
+	      last_deaths = og_deaths.filter(filterLast);
+		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
 	    }
 	});
 	Coronavirus_button.on("click", function(){
@@ -50,13 +58,17 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      active_buttons = removeValue(active_buttons, 'Coronavirus');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buttonBuild(cases, deaths, slider.value);
+	      last_cases = og_cases.filter(filterLast);
+	      last_deaths = og_deaths.filter(filterLast);
+		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
 	    }
 	    else{
 	      active_buttons.push('Coronavirus');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
-		  buttonBuild(cases, deaths, slider.value);
+	      last_cases = og_cases.filter(filterLast);
+	      last_deaths = og_deaths.filter(filterLast);
+		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
 	    }
 	});
 
@@ -76,21 +88,30 @@ function removeValue(arr, value){
 }
 
 function filterViruses(country){
-  return active_buttons.includes(country.Virus)
+  return active_buttons.includes(country.Virus);
 }
 
-function initialBuild(cases,deaths, slide_num){
-	drawGlobe(cases);
-	bubbleValues(cases, deaths, slide_num);
+function filterLast(country){
+	if (active_buttons.length > 0){
+		last_button = active_buttons.slice(-1);
+	}
+	return last_button.includes(country.Virus);
+}
+
+function initialBuild(cases, deaths, slide_num){
+	// drawGlobe(cases);
+	// bubbleValues(cases, deaths, slide_num);
 	makeMap(cases, deaths, slide_num);
 	confirmedCasesData(cases);
 	deathCasesData(deaths);
+	// drawComparisonChart(cases, deaths);
 }
 
-function buttonBuild(cases, deaths, slide_num){
-	drawGlobe(cases);
+function buttonBuild(cases, deaths, slide_num, last_cases, last_deaths){
+	drawGlobe(last_cases);
 	bubbleValues(cases, deaths, slide_num);
-	makeMap(cases,deaths, slide_num);
+	makeMap(cases, deaths, slide_num);
+	drawComparisonChart(last_cases, last_deaths);
 }
 
 function slideBuild(cases, deaths, slide_num, og_cases, og_deaths){
