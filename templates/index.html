@@ -45,9 +45,9 @@
   </header>
   <nav>
     <ul class="main_menu">
-      <button type="button" class="btn btn-secondary btn-md" id="SARS">SARS</button></li>
-      <button type="button" class="btn btn-secondary btn-md" id="H1N1">H1N1</button></li>
-      <button type="button" class="btn btn-secondary btn-md" id="Coronavirus">CORONAVIRUS</button></li>
+      <button type="button" class="btn btn-secondary btn-md" id="SARS">SARS</button>
+      <button type="button" class="btn btn-secondary btn-md" id="H1N1">H1N1</button>
+      <button type="button" class="btn btn-secondary btn-md" id="Coronavirus">CORONAVIRUS</button>
     </ul>
   </nav>
   <nav>
@@ -59,7 +59,17 @@
 </div>
 
   
-<div class="container-fluid text-center">    
+<div class="container-fluid text-center">   
+  <div class="row content">
+    <div class="col-xs-6 col-sm-6">
+      <!-- The div where we will inject the confirmed cases chart -->
+      <div ><h1 id="total_confirmed_cases"> Total Confirmed Cases Chart</h1></div>
+    </div>
+    <div class="col-xs-6 col-sm-6"> 
+      <!-- The div where we will inject the map in the top center -->
+      <div id="total_death_cases"><h1>Total Death Cases Chart</h1></div>
+    </div>
+    </div> 
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <!-- The div where we will inject the confirmed cases chart -->
@@ -117,7 +127,7 @@
  <script type="text/javascript" src="{{ url_for('static', filename='js/death_cases.js') }}"></script>
  <script type="text/javascript" src="{{ url_for('static', filename='js/config.js') }}"></script>
  <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script>
- 
+ <script type="text/javascript" src="{{ url_for('static', filename='js/total_cases.js') }}"></script>
  <!-- Tooltip-->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
     

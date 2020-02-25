@@ -30,7 +30,7 @@ function deathCasesData(data){
     for (var j = 0; j < coronavirusCountry.length; j++){
     
      total += coronavirusCountry[j][day_string];
-    //  console.log(coronaCases);
+   
   
     }
     coronaDeathCases.push(total);
@@ -44,7 +44,7 @@ function deathCasesData(data){
     for (var j = 0; j < h1n1virusCountry.length; j++){
     
      total += h1n1virusCountry[j][day_string];
-    //  console.log(coronaCases);
+   
   
     }
     h1n1DeathCases.push(total);
@@ -108,7 +108,7 @@ function deathCasesData(data){
         }
     },
   
-    colors: ['#6CF', '#39F', '#06C', '#036', '#000'],
+    colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5'],
   
     series: [{
         name: "Coronavirus",

@@ -104,6 +104,7 @@ function initialBuild(cases, deaths, slide_num){
 	makeMap(cases, deaths, slide_num);
 	confirmedCasesData(cases);
 	deathCasesData(deaths);
+	totalcasesData(cases);
 	// drawComparisonChart(cases, deaths);
 }
 
