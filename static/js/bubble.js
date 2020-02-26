@@ -6,10 +6,12 @@ function bubbleValues(cases,deaths,slide_num) {
     bubblecheckbox = document.getElementById('bubblecheck')
     if(bubblecheckbox.checked == false){
     response = cases;
+    display_word = " Confirmed Cases"
     }
     else{
         response = deaths;
-    };
+        display_word = " Deaths"
+    }
     lastDayNumber = slide_num;
     lastDay = "Day "+ String(lastDayNumber);
     if(slide_num > 44){
@@ -24,7 +26,7 @@ function bubbleValues(cases,deaths,slide_num) {
     else {
         corona_day = lastDay
         h1n1_day = lastDay
-    };
+    }
     if (active_buttons.length == 1){
         switch(active_buttons[0]){
             case "H1N1":
@@ -95,6 +97,7 @@ function bubbleValues(cases,deaths,slide_num) {
 
         Highcharts.chart('container', {
             chart: {
+                backgroundColor: '#d4d4dc',
                 type: 'packedbubble',
                 height: '100%',
                 
@@ -104,7 +107,7 @@ function bubbleValues(cases,deaths,slide_num) {
             },
             tooltip: {
                 useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}  Confirmed Cases<sub></sub>'
+                pointFormat: `<b>{point.name}:</b> {point.value}  ${display_word}<sub></sub>`
             },
             plotOptions: {
                 packedbubble: {
@@ -224,6 +227,7 @@ function bubbleValues(cases,deaths,slide_num) {
 
         Highcharts.chart('container', {
             chart: {
+                backgroundColor: '#d4d4dc',
                 type: 'packedbubble',
                 height: '100%',
                 
@@ -233,7 +237,7 @@ function bubbleValues(cases,deaths,slide_num) {
             },
             tooltip: {
                 useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}  Confirmed Cases<sub></sub>'
+                pointFormat: `<b>{point.name}:</b> {point.value}  ${display_word}<sub></sub>`
             },
             plotOptions: {
                 packedbubble: {
@@ -353,6 +357,7 @@ function bubbleValues(cases,deaths,slide_num) {
 
         Highcharts.chart('container', {
             chart: {
+                backgroundColor: '#d4d4dc',
                 type: 'packedbubble',
                 height: '100%',
                 
@@ -362,7 +367,7 @@ function bubbleValues(cases,deaths,slide_num) {
             },
             tooltip: {
                 useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}  Confirmed Cases<sub></sub>'
+                pointFormat: `<b>{point.name}:</b> {point.value}  ${display_word} <sub></sub>`
             },
             plotOptions: {
                 packedbubble: {
@@ -418,8 +423,20 @@ function bubbleValues(cases,deaths,slide_num) {
     }
 
     else if (active_buttons.length>1) {
-
-        lastDay = "Day "+ String(lastDayNumber);
+       
+        if(slide_num > 44){
+            corona_day = 'Day 23'
+            h1n1_day = 'Day 44'
+        }
+        else if (slide_num>23)
+        {
+            corona_day = 'Day 23'
+            h1n1_day = lastDay
+        }
+        else {
+            corona_day = lastDay    
+            h1n1_day = lastDay
+        };
         sars_list = []
         H1N1_list = []
         corona_list = []
@@ -457,6 +474,7 @@ function bubbleValues(cases,deaths,slide_num) {
     
         Highcharts.chart('container', {
             chart: {
+                backgroundColor: '#d4d4dc',
                 type: 'packedbubble',
                 height: '100%',
                 
@@ -466,7 +484,7 @@ function bubbleValues(cases,deaths,slide_num) {
             },
             tooltip: {
                 useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}Confirmed Cases<sub></sub>'
+                pointFormat: `<b>{point.name}:</b> {point.value}${display_word}<sub></sub>`
             },
             plotOptions: {
                 packedbubble: {

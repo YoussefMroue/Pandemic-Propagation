@@ -76,6 +76,7 @@ function confirmedCasesData(data){
 
 Highcharts.chart('confirmed_cases_chart', {
   chart: {
+    backgroundColor: '#d4d4dc',
       type: 'spline'
   },
   title: {
