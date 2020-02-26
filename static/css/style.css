@@ -11,13 +11,13 @@ body{
 
 header {
     background-color: #393f4d;
-    height: 150px;
+    height: 100px;
     padding: 4px;
 }
 
 header h1{
     text-align: center;
-    line-height: 50px;
+    line-height: 40px;
     color: white;
     font-weight: bold;
 }
@@ -47,8 +47,8 @@ button {
 }
 
 #map{
-    height: 40vh;
-    width: 40vw;
+    height: 46vh;
+    width: 46vw;
 }
   
   /* Set black background color, white text and some padding */
@@ -114,6 +114,14 @@ footer {
 .highcharts-container {
   margin: 0 auto
 } 
+
+#comparison_chart{
+  margin-top : 20px;
+  margin-left: 15px;
+  margin-right: 20px;
+  height: 40vh;
+  width: 40vw;
+}
 
 
 .slidecontainer {
