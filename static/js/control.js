@@ -107,7 +107,7 @@ function initialBuild(cases, deaths, slide_num){
 	makeMap(cases, deaths, slide_num);
 	confirmedCasesData(cases);
 	deathCasesData(deaths);
-	totalcasesData(cases);
+	totalLabels(cases, deaths, slide_num);
 	// drawComparisonChart(cases, deaths);
 }
 
@@ -116,6 +116,7 @@ function buttonBuild(cases, deaths, slide_num, last_cases, last_deaths){
 	bubbleValues(cases, deaths, slide_num);
 	makeMap(cases, deaths, slide_num);
 	drawComparisonChart(last_cases, last_deaths);
+	totalLabels(cases, deaths, slide_num);
 }
 
 function slideBuild(cases, deaths, slide_num, og_cases, og_deaths){
@@ -123,4 +124,5 @@ function slideBuild(cases, deaths, slide_num, og_cases, og_deaths){
 	makeMap(cases, deaths, slide_num);
 	confirmedCasesData(og_cases);
 	deathCasesData(og_deaths);
+	totalLabels(cases, deaths, slide_num);
 }

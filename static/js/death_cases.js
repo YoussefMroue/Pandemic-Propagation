@@ -74,6 +74,7 @@ function deathCasesData(data){
   
   Highcharts.chart('death_cases_chart', {
     chart: {
+        backgroundColor: '#d4d4dc',
         type: 'spline'
     },
     title: {
