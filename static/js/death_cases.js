@@ -77,10 +77,7 @@ function deathCasesData(data){
         type: 'spline'
     },
     title: {
-        text: 'Coronavirus, H1N1, and SARS Death Cases',
-    },
-    subtitle: {
-        text: 'Comparison Chart Dates for SARS 03/17/03 to 04/21/04 , H1N1 are from 5/23/2009 to 7/6/09, and CORONAVIRUS  from 1/21/20 to 2/14/20 '
+        text: 'Comparison Disease Death Cases',
     },
     xAxis: {
       title: {
