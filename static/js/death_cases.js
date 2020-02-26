@@ -81,12 +81,14 @@ function deathCasesData(data){
         text: 'Comparison Disease Death Cases',
     },
     xAxis: {
+
       title: {
           text: 'Outbreak Days'
       },
       categories: d_string
   },
     yAxis: {
+        gridLineColor: '#000000',
         title: {
             text: 'Number of Deaths'}
     },

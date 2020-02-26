@@ -89,6 +89,7 @@ Highcharts.chart('confirmed_cases_chart', {
     categories: d_string
 },
   yAxis: {
+    gridLineColor: '#000000',
       title: {
           text: 'Number of Confirmed Cases'}
   },
