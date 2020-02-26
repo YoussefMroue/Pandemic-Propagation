@@ -5,6 +5,7 @@ Coronavirus_button = d3.select("#Coronavirus");
 active_buttons = [];
 last_button = [""];
 slider = document.getElementById("myRange");
+sliderLabel = document.getElementById("DayLabel");
 
 cases_promise = d3.json("/api/cases");
 deaths_promise = d3.json("/api/deaths");
@@ -15,6 +16,7 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	const og_deaths = data[1];
 	cases = og_cases;
 	deaths = og_deaths;
+	sliderLabel.innerText = 'Day 0';
 	bubblecheckbox = document.getElementById('bubblecheck');
 	initialBuild(cases, deaths, slider.value);
 	SARS_button.on("click", function(){
@@ -73,6 +75,7 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	});
 
 	slider.onchange = function(){
+		sliderLabel.innerText = 'Day ' + String(slider.value);
 		slideBuild(cases, deaths, slider.value, og_cases, og_deaths);
 	}
 	function bubblecheckfunction(){

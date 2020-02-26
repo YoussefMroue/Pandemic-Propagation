@@ -42,7 +42,7 @@ function drawComparisonChart(cases, deaths){
 	var data = [casetrace, deathstrace];
 	var layout = {
 		barmode: 'group',
-		title: {text: 'Cases and Deaths over Time'},
+		title: {text: `Cases and Deaths over Time: ${active_virus}`},
 		xaxis: {title: {text: 'Number of Cases and Deaths'}},
 		yaxis: {title: {text: 'Day'}}
 	};
