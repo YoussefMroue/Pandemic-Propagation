@@ -103,7 +103,7 @@ function getPopup(feature, countries, deaths, day_num){
   for (country in countries){
     if (countries[country]['Country'] == feature.properties.name){
       if ((day_num > 23) && (countries[country]['Virus'] == 'Coronavirus')){
-        popup = popup.concat(`Coronavirus Cases: ${countries[country['Day 23']]}<br>`);
+        popup = popup.concat(`Coronavirus Cases: ${countries[country]['Day 23']}<br>`);
       }
       else if ((day_num > 44) && (countries[country]['Virus'] == 'H1N1')){
         popup = popup.concat(`H1N1 Cases: ${countries[country]['Day 44']}<br>`);
@@ -117,7 +117,7 @@ function getPopup(feature, countries, deaths, day_num){
   for (country in deaths){
     if (deaths[country]['Country'] == feature.properties.name){
       if ((day_num > 23) && (deaths[country]['Virus'] == 'Coronavirus')){
-        popup = popup.concat(`Coronavirus Deaths: ${deaths[country['Day 23']]}<br>`);
+        popup = popup.concat(`Coronavirus Deaths: ${deaths[country]['Day 23']}<br>`);
       }
       else if ((day_num > 44) && (deaths[country]['Virus'] == 'H1N1')){
         popup = popup.concat(`H1N1 Deaths: ${deaths[country]['Day 44']}<br>`);
