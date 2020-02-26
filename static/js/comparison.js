@@ -43,8 +43,10 @@ function drawComparisonChart(cases, deaths){
 	var layout = {
 		barmode: 'group',
 		title: {text: `Cases and Deaths over Time: ${active_virus}`},
-		xaxis: {title: {text: 'Number of Cases and Deaths'}},
-		yaxis: {title: {text: 'Day'}}
+		xaxis: {title: {text: 'Number of Cases and Deaths'}, automargin: true},
+		yaxis: {title: {text: 'Day'}, automargin: true},
+		paper_bgcolor: '#d4d4dc',
+		plot_bgcolor: '#d4d4dc'
 	};
 	Plotly.newPlot('comparison_chart', data, layout);
 }
