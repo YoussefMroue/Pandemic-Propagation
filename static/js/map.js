@@ -86,10 +86,10 @@ function chooseColor(feature, countries, day_num){
   else if (sum > 50){
     return '#abdda4';
   }
-  else if (sum > 30){
+  else if (sum > 25){
     return '#66c2a5';
   }
-  else if (sum > 10){
+  else if (sum > 0){
     return '#3288bd';
   }
   else {
@@ -129,3 +129,19 @@ function getPopup(feature, countries, deaths, day_num){
   }
   return popup;
 }
+
+var legend = L.control({ position: 'bottomright' });
+legend.onAdd = function () {
+  var div = L.DomUtil.create('div', 'info legend');
+  var limits = ['1','25','50','75','100','200','500','1000','5000','10000'];
+  var colors = ['#5e4fa2','#3288bd','#66c2a5','#abdda4','#e6f598','#ffffbf','#fee08b','#fdae61','#f46d43','#d53e4f','#9e0142'];
+  var labels = [];
+  div.innerHTML = '<b>Number of Cases</b><br>'
+  div.innerHTML += '<i style=background:' + colors[0] +'></i>0<br>';
+  for(var i=0; i<limits.length; i++){
+    div.innerHTML += '<i style=background:' + colors[i+1] + '></i>' + limits[i] + (limits[i + 1] ? '&ndash;' + limits[i + 1] + '<br>' : '+');
+  }
+  return div;
+};
+
+legend.addTo(myMap);
