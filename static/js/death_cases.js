@@ -26,7 +26,7 @@ function deathCasesData(data, day_num){
   
   //Iterate through each days up to day 23
   // Day 23 is the last day covered on the coronavirus dataset
-  for (var i = 0; i <= Math.min(23,day_num); i++) {
+  for (var i = 0; i <= Math.min(44,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
     for (var j = 0; j < coronavirusCountry.length; j++){

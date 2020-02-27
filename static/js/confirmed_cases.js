@@ -42,7 +42,7 @@ function confirmedCasesData(data, day_num){
   h1n1Cases = [];
   //Iterate thought every day up to day 44
   //Day 44 last day of the h1n1 dataset
-  for (var i = 0; i <= Math.min(23,day_num); i++) {
+  for (var i = 0; i <= Math.min(44,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
     for (var j = 0; j < h1n1Country.length; j++){
