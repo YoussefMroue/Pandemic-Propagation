@@ -102,13 +102,10 @@ function filterLast(country){
 }
 
 function initialBuild(cases, deaths, slide_num){
-	// drawGlobe(cases);
-	// bubbleValues(cases, deaths, slide_num);
 	makeMap(cases, deaths, slide_num);
-	confirmedCasesData(cases);
-	deathCasesData(deaths);
+	confirmedCasesData(cases, slide_num);
+	deathCasesData(deaths, slide_num);
 	totalLabels(cases, deaths, slide_num);
-	// drawComparisonChart(cases, deaths);
 }
 
 function buttonBuild(cases, deaths, slide_num, last_cases, last_deaths){
@@ -122,7 +119,7 @@ function buttonBuild(cases, deaths, slide_num, last_cases, last_deaths){
 function slideBuild(cases, deaths, slide_num, og_cases, og_deaths){
 	bubbleValues(cases, deaths, slide_num);
 	makeMap(cases, deaths, slide_num);
-	confirmedCasesData(og_cases);
-	deathCasesData(og_deaths);
+	confirmedCasesData(og_cases, slide_num);
+	deathCasesData(og_deaths, slide_num);
 	totalLabels(cases, deaths, slide_num);
 }

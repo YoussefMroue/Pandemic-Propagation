@@ -1,4 +1,5 @@
 function drawComparisonChart(cases, deaths){
+	//get basic variables and determine which virus we are working with
 	var active_virus = last_button[0];
 	var num_days = 0;
 	if (active_virus == 'Coronavirus'){
@@ -13,6 +14,7 @@ function drawComparisonChart(cases, deaths){
 	var labels = [];
 	var case_values = [];
 	var death_values = [];
+	//we get our chart data from the complete data by summing per day
 	for (var i = 0; i < num_days+1; i++){
 		var day_string = 'Day ' + String(i);
 		labels.push(day_string);
@@ -27,6 +29,7 @@ function drawComparisonChart(cases, deaths){
 		case_values.push(cases_sum);
 		death_values.push(deaths_sum);
 	}
+	//we build our chart
 	var casetrace = {
 		x: labels,
 		y: case_values,

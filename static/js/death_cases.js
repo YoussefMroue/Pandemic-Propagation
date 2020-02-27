@@ -1,5 +1,5 @@
 //Filter countries for each virus
-function deathCasesData(data){
+function deathCasesData(data, day_num){
     sarsvirusCountry = [];
     h1n1virusCountry = [];
     coronavirusCountry = [];
@@ -24,7 +24,7 @@ function deathCasesData(data){
     //Create arrays with cases accumulative cases per day 
   coronaDeathCases = [];
   
-  for (var i = 0; i < 23; i++) {
+  for (var i = 0; i <= Math.min(23,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
     for (var j = 0; j < coronavirusCountry.length; j++){
@@ -38,7 +38,7 @@ function deathCasesData(data){
   }
   h1n1DeathCases = [];
   
-  for (var i = 0; i < 44; i++) {
+  for (var i = 0; i <= Math.min(44,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
     for (var j = 0; j < h1n1virusCountry.length; j++){
@@ -53,7 +53,7 @@ function deathCasesData(data){
   sarsDeathCases = [];
   d_string = [];
   
-  for (var i = 0; i < 116; i++) {
+  for (var i = 0; i <= Math.min(116,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
     for (var j = 0; j < sarsvirusCountry.length; j++){

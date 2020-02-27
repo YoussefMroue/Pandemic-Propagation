@@ -152,17 +152,23 @@ footer {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
   width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  border-radius: 50%;
-  background: #4CAF50; /* Green background */
+  height: 35px; /* Slider handle height */
+  /*border-radius: 50%;*/
+  /*background: #4CAF50;  Green background */
+  border: 0;
+  background: url('../images/background.png');
+  background-size: 100%;
   cursor: pointer; /* Cursor on hover */
 }
 
 .slide::-moz-range-thumb {
   width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  border-radius: 50%;
-  background: #4CAF50; /* Green background */
+  height: 35px; /* Slider handle height */
+  /*border-radius: 50%;*/
+  /*background: #4CAF50;  Green background */
+  border: 0;
+  background: url('../images/background.png');
+  background-size: 100%;
   cursor: pointer; /* Cursor on hover */
 }
 
