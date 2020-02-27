@@ -18,8 +18,8 @@ function confirmedCasesData(data){
     
     else {
         h1n1Country.push(data[i]);
-  
-
+      }
+    }
   
   //Create arrays with  cumulative cases per day for the coronavirus
   coronaCases = [];
@@ -55,7 +55,7 @@ function confirmedCasesData(data){
     parseInt(h1n1Cases)
   }
    //Create arrays withcumulative cases per day for h1n1 and days 
-  //Iterate thought every day up to day 116
+  //Iterate thought every day up to day 44
   //Day 116 last day of the h1n1 dataset
   //116 days is the last value in the x axix
   sarsCases = [];
@@ -79,7 +79,7 @@ function confirmedCasesData(data){
 Highcharts.chart('confirmed_cases_chart', {
   chart: {
     backgroundColor: '#d4d4dc',
-      type: 'spline'
+    type: 'spline'
   },
   //Add titles and subtitles
   title: {
@@ -87,14 +87,14 @@ Highcharts.chart('confirmed_cases_chart', {
   },
   subtitle: {
     text: 'Number of Confirmed Cases'
-},
-//Add Axis 
+  },
+  //Add Axis 
   xAxis: {
     title: {
         text: 'Outbreak Days'
     },
     categories: d_string
-},
+  },
   yAxis: {
     gridLineColor: '#000000',
       title: {
