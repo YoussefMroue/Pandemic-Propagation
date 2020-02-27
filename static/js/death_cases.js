@@ -3,27 +3,29 @@ function deathCasesData(data, day_num){
     sarsvirusCountry = [];
     h1n1virusCountry = [];
     coronavirusCountry = [];
-    
+
+
+   
     for (var i = 0; i < data.length; i++) {
       
       if (data[i].Virus == 'Coronavirus') {
         coronavirusCountry.push(data[i]);
-              // console.log(coronaCountry);
         }
       
       else if (data[i].Virus == 'SARS') {
         sarsvirusCountry.push(data[i]);
-          // console.log(sarsCountry);
       }
       
       else {
-        h1n1virusCountry.push(data[i]);
-          // console.log(h1n1Country);   
+        h1n1virusCountry.push(data[i]);  
       }
     }
-    //Create arrays with cases accumulative cases per day 
+  //Create arrays with cumulative cases per day 
+  // Create an empty array for corona deaths
   coronaDeathCases = [];
   
+  //Iterate through each days up to day 23
+  // Day 23 is the last day covered on the coronavirus dataset
   for (var i = 0; i <= Math.min(23,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
@@ -36,9 +38,12 @@ function deathCasesData(data, day_num){
     coronaDeathCases.push(total);
     parseInt(coronaDeathCases)
   }
+  // Create an empty array for h1n1 deaths
   h1n1DeathCases = [];
   
-  for (var i = 0; i <= Math.min(44,day_num); i++) {
+  //Iterate through each day up to day 44
+  // Day 44 is the last day covered on h1n1 dataset
+  for (var i = 0; i <= Math.min(23,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
     for (var j = 0; j < h1n1virusCountry.length; j++){
@@ -50,6 +55,9 @@ function deathCasesData(data, day_num){
     h1n1DeathCases.push(total);
     parseInt(h1n1DeathCases);
   }
+  //Create an empty array for sars death cases and the list of all the days 
+  // SARS Dataset cover the most days 116
+  // Going to use day array for X labels for chart 
   sarsDeathCases = [];
   d_string = [];
   
@@ -59,7 +67,7 @@ function deathCasesData(data, day_num){
     for (var j = 0; j < sarsvirusCountry.length; j++){
     
      total += sarsvirusCountry[j][day_string];
-    //  console.log(coronaCases);
+  
   
     }
     sarsDeathCases.push(total);
@@ -67,21 +75,22 @@ function deathCasesData(data, day_num){
     parseInt(sarsDeathCases)
     
   }
-  // console.log(d_string)
 
-  // console.log(h1n1Cases)
 
-  
+  // Select div to draw chart 
   Highcharts.chart('death_cases_chart', {
     chart: {
         backgroundColor: '#d4d4dc',
         type: 'spline'
     },
+    //Add Title and Subtitles
     title: {
-        text: 'Comparison Disease Death Cases',
+        text: 'Disease Comparison',
+    },
+    subtitle: {
+        text: 'Number of Death Cases',
     },
     xAxis: {
-
       title: {
           text: 'Outbreak Days'
       },
@@ -90,13 +99,14 @@ function deathCasesData(data, day_num){
     yAxis: {
         gridLineColor: '#000000',
         title: {
-            text: 'Number of Deaths'}
+            text: 'Number of Death Cases'}
     },
+    //Add Tooltip
     tooltip: {
         headerFormat: '<b>{series.name}</b><br>',
         pointFormat: '{point.x} days: {point.y} cases '
     },
-  
+    //Add animation 
     plotOptions: {
         series: {
             animation: {
@@ -107,9 +117,9 @@ function deathCasesData(data, day_num){
             }
         }
     },
-  
+    // Set up the colors
     colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5'],
-  
+    //Plug in the data 
     series: [{
         name: "Coronavirus",
         data: coronaDeathCases

@@ -18,41 +18,46 @@ function confirmedCasesData(data, day_num){
     
     else {
         h1n1Country.push(data[i]);
-        // console.log(h1n1Country);   
+      }
     }
-  }
-  // console.log(sarsCountry);
-
   
-  //Create arrays with cases accumulative cases per day 
+  //Create arrays with  cumulative cases per day for the coronavirus
   coronaCases = [];
   
+  //Iterate thought every day up to day 23
+  //Day 23 last day of the CoronaVirus dataset
   for (var i = 0; i <= Math.min(23,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
     for (var j = 0; j < coronaCountry.length; j++){
     
      total += coronaCountry[j][day_string];
-    //  console.log(coronaCases);
+    
   
     }
     coronaCases.push(total);
     parseInt(coronaCases)
   }
+  //Create arrays with cumulative cases per day for h1n1
   h1n1Cases = [];
-  
-  for (var i = 0; i <= Math.min(44,day_num); i++) {
+  //Iterate thought every day up to day 44
+  //Day 44 last day of the h1n1 dataset
+  for (var i = 0; i <= Math.min(23,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
     for (var j = 0; j < h1n1Country.length; j++){
     
      total += h1n1Country[j][day_string];
-    //  console.log(coronaCases);
+  
   
     }
     h1n1Cases.push(total);
     parseInt(h1n1Cases)
   }
+   //Create arrays withcumulative cases per day for h1n1 and days 
+  //Iterate thought every day up to day 44
+  //Day 116 last day of the h1n1 dataset
+  //116 days is the last value in the x axix
   sarsCases = [];
   d_string = [];
   
@@ -62,7 +67,7 @@ function confirmedCasesData(data, day_num){
     for (var j = 0; j < sarsCountry.length; j++){
     
      total += sarsCountry[j][day_string];
-    //  console.log(coronaCases);
+  
   
     }
     sarsCases.push(total);
@@ -70,34 +75,37 @@ function confirmedCasesData(data, day_num){
     parseInt(sarsCases)
     
   }
-  // console.log(d_string)
-
-  // console.log(h1n1Cases)
-
+//Select div to start drawing chart 
 Highcharts.chart('confirmed_cases_chart', {
   chart: {
     backgroundColor: '#d4d4dc',
-      type: 'spline'
+    type: 'spline'
   },
+  //Add titles and subtitles
   title: {
-      text: 'Comparison Disease Confirmed Cases '
+      text: 'Comparison Disease'
   },
+  subtitle: {
+    text: 'Number of Confirmed Cases'
+  },
+  //Add Axis 
   xAxis: {
     title: {
         text: 'Outbreak Days'
     },
     categories: d_string
-},
+  },
   yAxis: {
     gridLineColor: '#000000',
       title: {
           text: 'Number of Confirmed Cases'}
   },
+  //Add tooltips
   tooltip: {
       headerFormat: '<b>{series.name}</b><br>',
       pointFormat: '{point.x} days: {point.y} cases '
   },
-
+  //Add Animation
   plotOptions: {
     series: {
         animation: {
@@ -110,7 +118,7 @@ Highcharts.chart('confirmed_cases_chart', {
   },
 
   colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5'],
-
+  //Plug in data 
   series: [{
       name: "Coronavirus",
       data: coronaCases
