@@ -10,6 +10,15 @@ sliderLabel = document.getElementById("DayLabel");
 cases_promise = d3.json("/api/cases");
 deaths_promise = d3.json("/api/deaths");
 
+// SARS_button = document.querySelector("#SARS");
+// H1N1_button = document.querySelector("#H1N1");
+// Coronavirus_button = document.querySelector("#Coronavirus");	 
+ 
+// 	  SARS_button.addEventListener('click',() =>SARS_button.style.background ='#337ab7')
+//       H1N1_button.addEventListener('click', ()=> H1N1_button.style.background = '#c9302c')
+//       Coronavirus_button.addEventListener('click', ()=> Coronavirus_button.style.background ='#4cae4c')
+
+
 
 Promise.all([cases_promise,deaths_promise]).then(data => {
 	const og_cases = data[0];
@@ -25,7 +34,8 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
 	      last_cases = og_cases.filter(filterLast);
-	      last_deaths = og_deaths.filter(filterLast);
+		  last_deaths = og_deaths.filter(filterLast);
+		  SARS_button.style("background-color","#A9A9A9");
 		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
 	    }
 	    else{
@@ -33,7 +43,8 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
 	      last_cases = og_cases.filter(filterLast);
-	      last_deaths = og_deaths.filter(filterLast);
+		  last_deaths = og_deaths.filter(filterLast);
+		  SARS_button.style("background-color","#337AB7");
 		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
 	    }
 	});
@@ -43,15 +54,17 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
 	      last_cases = og_cases.filter(filterLast);
-	      last_deaths = og_deaths.filter(filterLast);
-		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
+		  last_deaths = og_deaths.filter(filterLast);
+		  H1N1_button.style("background-color","#A9A9A9");
+		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths, style_h1n1);
 	    }
 	    else{
 	      active_buttons.push('H1N1');
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
 	      last_cases = og_cases.filter(filterLast);
-	      last_deaths = og_deaths.filter(filterLast);
+		  last_deaths = og_deaths.filter(filterLast);
+		  H1N1_button.style("background-color","#337AB7");
 		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
 	    }
 	});
@@ -61,7 +74,8 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
 	      last_cases = og_cases.filter(filterLast);
-	      last_deaths = og_deaths.filter(filterLast);
+		  last_deaths = og_deaths.filter(filterLast);
+		  Coronavirus_button.style("background-color","#A9A9A9");
 		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
 	    }
 	    else{
@@ -69,7 +83,8 @@ Promise.all([cases_promise,deaths_promise]).then(data => {
 	      cases = og_cases.filter(filterViruses);
 	      deaths = og_deaths.filter(filterViruses);
 	      last_cases = og_cases.filter(filterLast);
-	      last_deaths = og_deaths.filter(filterLast);
+		  last_deaths = og_deaths.filter(filterLast);
+		  Coronavirus_button.style("background-color","#337AB7");
 		  buttonBuild(cases, deaths, slider.value, last_cases, last_deaths);
 	    }
 	});

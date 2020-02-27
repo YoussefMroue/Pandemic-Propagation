@@ -49,30 +49,22 @@
       <button type="button" class="btn btn-secondary btn-md" id="Coronavirus">CORONAVIRUS</button>
     </ul>
   </nav>
-  <nav>
-  	<label class="switch">
-  		<input type="checkbox" id = "bubblecheck" onclick="bubblecheckfunction()">
-  		<span class="slider round"></span>
-	</label>
-  </nav>
 </div>
-
-  
 <div class="container-fluid text-center">   
   <div class="row content">
     <div class="col-xs-6 col-sm-6">
-      <!-- The div where we will inject the confirmed cases chart -->
+      <!-- The div will inject total number of cases -->
       <div ><h1 id="total_confirmed_cases"></h1></div>
     </div>
     <div class="col-xs-6 col-sm-6"> 
-      <!-- The div where we will inject the map in the top center -->
-      <div id="total_death_cases"><h1></h1></div>
+      <!-- The div will inject total number of deaths-->
+      <div ><h1 id="total_death_cases"></h1></div>
     </div>
     </div> 
   <div class="row content">
-    <div class="col-sm-3 sidenav">
+    <div class="col-sm-3 ">
       <!-- The div where we will inject the confirmed cases chart -->
-      <div id="confirmed_cases_chart"><h1>Confirmed Cases Chart</h1></div>
+      <div id="confirmed_cases_chart"><Confirmed Cases Chart Confirmed></div>
     </div>
     <div class="col-sm-6 text-center"> 
       <!-- The div where we will inject the map in the top center -->
@@ -82,29 +74,36 @@
 		    <input type="range" min="0" max="116" value="0" class="slide" id="myRange">
       </div>
     </div>
-    <div class="col-sm-3 sidenav">
+    <div class="col-sm-3">
       <!-- The div where we will inject the death cases chart -->
       <div id="death_cases_chart"><h1>Death Cases Chart</h1></div>
     </div>
   </div>
 </div>
 <div class="row content">
-  <div class="col-sm-4 ">
+  <div class="col-md-3 ">
     <!-- The div where we will inject the comparison Chart-->
     <div id="comparison_chart"></div>
   </div>
-  <div class="col-sm-4 text-center"> 
+  <div class="col-md-5 text-center"> 
      <!-- The div where we will inject the globe -->
      <b id="globe_info"></b>
      <div id="globe">
      </div> 
   </div>
-  <div class="col-sm-4 ">
+  <div class="col-md-4 ">
     <!-- The div where we will inject Bubble Chart -->
     <div id='bubbles'><h1></h1>
-      <div id = 'container'></div>
-    </div> 
+    <nav>
+      <label class="switch "> 
+       <input type="checkbox" id = "bubblecheck" onclick="bubblecheckfunction()">
+        <span class="slider round"></span>
+    </label>
+    </nav>
   </div>
+  <div id = 'container'></div>
+  </div>
+</div>
 </div>
     <!-- D3-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
