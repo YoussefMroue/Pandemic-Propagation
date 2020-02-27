@@ -54,6 +54,10 @@ class Versor {
   }
 }
 
+
+//Class Versor ran all our calculations to determine the Great Circle connecting our two points and interpolating the path
+
+//we define our basic values for our projection mapping
 width = window.innerHeight/3;
 height = window.innerHeight/3;
 sphere = ({type: "Sphere"});
@@ -67,8 +71,10 @@ const projection = d3.geoOrthographic().fitExtent([[10, 10], [width - 10, height
 const path = d3.geoPath(projection, context);
 
 function drawGlobe(cases){
+  //we read our data in for the map
   var world = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
   world.then(function(result){
+    //we get our geographical data out
     land = topojson.feature(result, result.objects.land);
     borders = topojson.mesh(result, result.objects.countries, (a, b) => a !== b);
     countries = topojson.feature(result, result.objects.countries).features;
@@ -78,21 +84,21 @@ function drawGlobe(cases){
     height = 360;
     name = ""
 
-    sorted = sortCases(cases);
+    sorted = sortCases(cases); //this sorts by day the country first saw cases
     var infected = [];
 
     let p1, p2 = [0, 0], r1, r2 = [0, 0, 0];
     var delay_time = 0;
-
+    //for each country in our list, we pass it through our render functions so that a line will be drawn to it and it will turn red
     for (var item in sorted) {
       country_list = countries.find(country => {
-        return country.properties.name == sorted[item]['Country'];
+        return country.properties.name == sorted[item]['Country']; //we link our data sets
       })
-      if (country_list != undefined){
+      if (country_list != undefined){//if we have geographical data for our country...
         name = country_list.properties.name;
         var virus = sorted[item]['Virus'];
         var num_cases = 0;
-        if (virus == 'Coronavirus'){
+        if (virus == 'Coronavirus'){//we pass the total number of cases the country recieved
           num_cases = sorted[item]['Day 23'];
         }
         else if (virus == 'SARS'){
@@ -105,18 +111,18 @@ function drawGlobe(cases){
         p1 = p2, p2 = d3.geoCentroid(country_list);
         r1 = r2, r2 = [-p2[0], tilt - p2[1], 0];
 
-        transitions(p1,p2,r1,r2, delay_time, country_list, infected, virus, num_cases);
+        transitions(p1,p2,r1,r2, delay_time, country_list, infected, virus, num_cases); //this visualizes the values
       }
     }
   });
 }
 
 
-function render(country, arc, infected) {
+function render(country, arc, infected) {//renders the visuals
   context.clearRect(0, 0, width, height);
   context.beginPath(), path(land), context.fillStyle = "#000", context.fill();
   context.beginPath(), path(country), context.fillStyle = "#f00", context.fill();
-  for (nation in infected){
+  for (nation in infected){//keeps countries we have already shown to be infected as red
     context.beginPath(), path(infected[nation]), context.fillStyle = "#f00", context.fill();
   }
   context.beginPath(), path(borders), context.strokeStyle = "#fff", context.lineWidth = 0.5, context.stroke();
@@ -129,8 +135,8 @@ function transitions(p1,p2,r1,r2, delay_time, country, infected, virus, num_case
   const ip = d3.geoInterpolate(p1, p2);
   const iv = Versor.interpolateAngles(r1, r2);
   d3.transition()
-  .delay(delay_time)
-  .duration(1000)
+  .delay(delay_time)//this determines at what time the transition will start, so that our transitions don't all go off at once
+  .duration(1000)//length of the transition
   .tween("render", () => t => {
     document.getElementById("globe_info").innerText = `${country.properties.name}: ${virus} Cases: ${num_cases}`;
     projection.rotate(iv(t));
@@ -144,6 +150,8 @@ function transitions(p1,p2,r1,r2, delay_time, country, infected, virus, num_case
   .end();
 }
 
+
+//this function sorts the data by day country first saw cases
 function sortCases(df){
   for(i=116; i>=0; i--){
     day = 'Day ' + String(i)

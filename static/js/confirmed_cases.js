@@ -1,5 +1,5 @@
 //Filter countries for each virus
-function confirmedCasesData(data){
+function confirmedCasesData(data, day_num){
   sarsCountry = [];
   h1n1Country = [];
   coronaCountry = [];
@@ -26,7 +26,7 @@ function confirmedCasesData(data){
   
   //Iterate thought every day up to day 23
   //Day 23 last day of the CoronaVirus dataset
-  for (var i = 0; i < 23; i++) {
+  for (var i = 0; i <= Math.min(23,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
     for (var j = 0; j < coronaCountry.length; j++){
@@ -42,7 +42,7 @@ function confirmedCasesData(data){
   h1n1Cases = [];
   //Iterate thought every day up to day 44
   //Day 44 last day of the h1n1 dataset
-  for (var i = 0; i < 44; i++) {
+  for (var i = 0; i <= Math.min(44,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
     for (var j = 0; j < h1n1Country.length; j++){
@@ -61,7 +61,7 @@ function confirmedCasesData(data){
   sarsCases = [];
   d_string = [];
   
-  for (var i = 0; i < 116; i++) {
+  for (var i = 0; i <= Math.min(116,day_num); i++) {
     day_string = 'Day ' + String(i);
     total = 0;
     for (var j = 0; j < sarsCountry.length; j++){

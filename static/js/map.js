@@ -3,7 +3,7 @@ var myMap = L.map("map", {
   zoom: 3
 });
 
-// Adding tile layer
+// Adding tile layer after building basic map
 L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
   maxZoom: 18,
   id: "mapbox.streets-basic",
@@ -11,11 +11,12 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(myMap);
 function makeMap(cases, deaths, day_num){
   var geojson;
+  //we plot our data using our geoJSON
   L.geoJson(world_geography, {
     style: function(feature) {
       return {
         color: 'black',
-        fillColor: chooseColor(feature, cases, day_num),
+        fillColor: chooseColor(feature, cases, day_num), //here we must link our data to the map
         fillOpacity: 0.5,
         weight: 1.5
       }
@@ -35,19 +36,17 @@ function makeMap(cases, deaths, day_num){
           });
         }
       });
-      layer.bindPopup(getPopup(feature, cases, deaths, day_num));
+      layer.bindPopup(getPopup(feature, cases, deaths, day_num)); //here again we link our data to the map
     }
   }).addTo(myMap);
 }
 
 function chooseColor(feature, countries, day_num){
-  // list_o_counties = countries.find(country => {
-  //   return feature.properties.name == country['Country'];
-  // });
+  //here we link our map to our data using country name, which is common across both data sets
   var sum = 0;
   var max = 0;
   var day_string = 'Day ' + String(day_num);
-  //console.log(countries);
+  
   for (country in countries){
     if (countries[country]['Country'] == feature.properties.name){
       if ((day_num > 23) && (countries[country]['Virus'] == 'Coronavirus')){
@@ -61,7 +60,7 @@ function chooseColor(feature, countries, day_num){
       }
     }
   }
-  
+  //total cases across all viruses selected determines the color of the country
   if (sum > 10000){
     return '#9e0142';
   }
@@ -98,8 +97,10 @@ function chooseColor(feature, countries, day_num){
 }
 
 function getPopup(feature, countries, deaths, day_num){
+  //again we link our data sets by country name
   var popup = `<strong>${feature.properties.name}: Day ${day_num}</strong><hr>`;
   var day_string = 'Day ' + String(day_num);
+  //add popup specifying virus, # of cases or deaths, depending on country and day
   for (country in countries){
     if (countries[country]['Country'] == feature.properties.name){
       if ((day_num > 23) && (countries[country]['Virus'] == 'Coronavirus')){
@@ -129,7 +130,7 @@ function getPopup(feature, countries, deaths, day_num){
   }
   return popup;
 }
-
+//we add the legend for our colors
 var legend = L.control({ position: 'bottomright' });
 legend.onAdd = function () {
   var div = L.DomUtil.create('div', 'info legend');
