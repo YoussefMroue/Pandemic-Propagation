@@ -202,10 +202,26 @@ footer {
 
 .switch {
   position: relative;
+  left: calc(50% - 30px);
   display: inline-block;
   width: 60px;
   height: 34px;
-  align-items: center;
+}
+.switch:before{
+  content: "Cases";
+  position: relative;
+  right: 80px;
+  font-family:'Arial', sans-serif;
+  font-size: 26px;
+}
+.switch:after{
+  content: "Deaths";
+  position: absolute;
+  display: inline-block;
+  top:0;
+  left: 62px;
+  font-family:'Arial', sans-serif;
+  font-size: 26px;
 }
 
 /* Hide default HTML checkbox */
