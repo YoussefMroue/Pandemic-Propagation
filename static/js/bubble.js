@@ -2,9 +2,10 @@
 countriesList = [];
 casesCount = [];
 continents_array = getContinents();
-function bubbleValues(cases,deaths,slide_num) {
+//Imported continents api to cross reference with our countries
+function bubbleValues(cases,deaths,slide_num) { //function to run the chart
     bubblecheckbox = document.getElementById('bubblecheck')
-    if(bubblecheckbox.checked == false){
+    if(bubblecheckbox.checked == false){//checking if button is switched to cases or deaths
     response = cases;
     display_word = " Confirmed Cases"
     }
@@ -14,7 +15,7 @@ function bubbleValues(cases,deaths,slide_num) {
     }
     lastDayNumber = slide_num;
     lastDay = "Day "+ String(lastDayNumber);
-    if(slide_num > 44){
+    if(slide_num > 44){ //adjusting end date for virus since it is dependant on slider and slider goes over end date for some viruses
         corona_day = 'Day 23'
         h1n1_day = 'Day 44'
     }
@@ -27,7 +28,7 @@ function bubbleValues(cases,deaths,slide_num) {
         corona_day = lastDay
         h1n1_day = lastDay
     }
-    if (active_buttons.length == 1){
+    if (active_buttons.length == 1){//switch case for different conditions depending on which virus is chose
         switch(active_buttons[0]){
             case "H1N1":
         lastDay = h1n1_day;
@@ -36,15 +37,15 @@ function bubbleValues(cases,deaths,slide_num) {
         af_list_new = [];
         as_list_new = [];
         oc_list_new = [];
-        sa_list_new = [];
+        sa_list_new = [];//lists for each continent in order to group them in respective list
         for(country in response){
-            if(continents_array[0].includes(response[country]['Country'])){
+            if(continents_array[0].includes(response[country]['Country'])){//checks which country the response gives back 
                 if (response[country][lastDay] != 0){
                     var eu_dict = {
                         name : response[country]['Country'],
                         value : response[country][lastDay]
                     }
-                    eu_list_new.push(eu_dict)
+                    eu_list_new.push(eu_dict)//makes a list of dictionaries in order to graph it correctly
                 }
             }
             else if (continents_array[5].includes(response[country]['Country'])){
@@ -53,7 +54,7 @@ function bubbleValues(cases,deaths,slide_num) {
                         name : response[country]['Country'],
                         value : response[country][lastDay]
                     }
-                    na_list_new.push(na_dict);
+                    na_list_new.push(na_dict);//repeated for every continent
                 }
             }
             else if (continents_array[1].includes(response[country]['Country'])){
@@ -102,7 +103,7 @@ function bubbleValues(cases,deaths,slide_num) {
                 height: '100%',
                 
             },
-            title: {
+            title: {//chart styling 
                 text: `<strong>${active_buttons[0]}</strong>  Distribution by Continent`
             },
             tooltip: {
@@ -154,12 +155,12 @@ function bubbleValues(cases,deaths,slide_num) {
                 data: oc_list_new
             },{
                 name: 'Africa',
-                data: af_list_new
+                data: af_list_new//dividing it up by continent here so it is read as different groups and colors them accordingly
             }]
             
         })
         break;
-            case "SARS":
+            case "SARS": //repeated case for SARS
         lastDay =  "Day "+ String(lastDayNumber);
         eu_list_new = [];
         na_list_new = [];
@@ -289,7 +290,7 @@ function bubbleValues(cases,deaths,slide_num) {
             
         })
         break;
-        case "Coronavirus":
+        case "Coronavirus": //Repeated case for corona virus
         lastDay =  corona_day;
         eu_list_new = [];
         na_list_new = [];
@@ -422,7 +423,7 @@ function bubbleValues(cases,deaths,slide_num) {
     }
     }
 
-    else if (active_buttons.length>1) {
+    else if (active_buttons.length>1) {//checks if more than one virus is chosen
        
         if(slide_num > 44){
             corona_day = 'Day 23'
@@ -442,7 +443,7 @@ function bubbleValues(cases,deaths,slide_num) {
         corona_list = []
 
         for(country in response){
-            if (active_buttons.indexOf("SARS")!= -1 ){
+            if (active_buttons.indexOf("SARS")!= -1 ){//groups them by virus instead of continent
                 if (response[country][lastDay] != 0 && response[country]['Virus'] == "SARS"){
                     var sars_dict = {
                         name : response[country]['Country'],
