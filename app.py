@@ -73,7 +73,8 @@ def deaths():
 				result[k] = "null"
 	return jsonify(deaths_list)
 
-@app.route("/api/continents")
+@app.route("/api/continents") 
+# route just for continents
 def continents():
 	continents_results = db.continents.find({},{"_id":0})
 	continents_list = list(continents_results)
