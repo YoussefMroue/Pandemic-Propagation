@@ -2,7 +2,7 @@
 By Youssef Mroue, Vaishall Pradeepkumar, Eliana Suarez, and Xiaodi Lin
 
 ##### Introduction
-  For this project we chose to analyze the spread of the newly abrupting **Corona Virus**. To do this properly we also decided to comapre it to similar abruptions in the past. We chose **H1N1** (Swine Flue in 2009) and **SARS** (Severe acute respiratory syndrome in 2003)
+  For this project we chose to analyze the spread of the newly rampant **Coronavirus**. To do this properly we also decided to compare it to similar pandemics in the past. We chose **H1N1** (Swine Flu in 2009) and **SARS** (Severe Acute Respiratory Syndrome in 2003)
 
 Data sources Used:
 
@@ -13,7 +13,8 @@ Data sources Used:
 ##### Navigation
 assets folder will be the rawdata csv files, datacleaning and python scripts.  
 app.py launches the flask app linked to the mongodb written in python.  
-static folder contains all web development files such as the index.html file, javascript scripts and css styling.
+/templates folder contains index.html  
+static folder contains all web development files such as the images, javascript scripts and css styling.
 
 ##### Webpage
   As you open the webpage it starts off with a choropleth map in the middle with a number of cases and a number of deaths counter depending on the selection/combination of viruses chosen from the 3 buttons at the top of the page. To the left and right of the map you will find a line graph of both the number of confirmed cases and deaths versus time respectively.  
@@ -27,3 +28,8 @@ Youssef: H1N1 Cleaning, Flask, Bubble JS
 Vaishall: SARS Cleaning, Flask, Choropleth, Globe, Control.js and bar chart  
 Eliana: Corona Cleaning, HTML and styling, both Line charts  
 Xiaodi: Flask, styling, presentation  
+
+
+#####
+Tools Used:  
+Python (pandas, Beautiful Soup, Flask, Pymongo), MongoDB, HTML, CSS, Javascript (Plotly, D3, Leaflet, TopoJSON, Highcharts)
